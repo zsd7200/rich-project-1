@@ -27,42 +27,42 @@ const urlStruct = {
 
 // function to handle requests
 const onRequest = (request, response) => {
-    const parsedUrl = url.parse(request.url);
-    const params = query.parse(parsedUrl.query); // needed for checking valid and loggedIn params
+  const parsedUrl = url.parse(request.url);
+  const params = query.parse(parsedUrl.query); // needed for checking valid and loggedIn params
 
 
-    if (parsedUrl.pathname === '/addFavorite') {
-        // variable to hold passed in data
-        const body = [];
+  if (parsedUrl.pathname === '/addFavorite') {
+    // variable to hold passed in data
+    const body = [];
 
-        // error handler
-        request.on('error', (err) => {
-          console.dir(err);
-          response.statusCode = 400;
-          response.end();
-        });
+    // error handler
+    request.on('error', (err) => {
+      console.dir(err);
+      response.statusCode = 400;
+      response.end();
+    });
 
-        // add data to byte array
-        request.on('data', (chunk) => {
-          body.push(chunk);
-        });
+    // add data to byte array
+    request.on('data', (chunk) => {
+      body.push(chunk);
+    });
 
-        // on end of stream
-        request.on('end', () => {
-          // combine byte array and convert to string
-          const bodyString = Buffer.concat(body).toString();
+    // on end of stream
+    request.on('end', () => {
+      // combine byte array and convert to string
+      const bodyString = Buffer.concat(body).toString();
 
-          // parse string into object
-          const bodyParams = query.parse(bodyString);
+      // parse string into object
+      const bodyParams = query.parse(bodyString);
 
-          // run addUser
-          jsonHandler.addFavorite(request, response, bodyParams);
+      // run addUser
+      jsonHandler.addFavorite(request, response, bodyParams);
     }); // otherwise run appropriate method
-    } else if (urlStruct[request.method][parsedUrl.pathname]) {
-        urlStruct[request.method][parsedUrl.pathname](request, response, params);
-    } else {
-        urlStruct[request.method].notFound(request, response);
-    }
+  } else if (urlStruct[request.method][parsedUrl.pathname]) {
+    urlStruct[request.method][parsedUrl.pathname](request, response, params);
+  } else {
+    urlStruct[request.method].notFound(request, response);
+  }
 };
 
 // start server

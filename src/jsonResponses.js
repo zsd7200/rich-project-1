@@ -1,6 +1,6 @@
 const users = {};
-const Pokedex = require('pokedex-promise-v2');
-const P = new Pokedex();
+// const Pokedex = require('pokedex-promise-v2');
+// const P = new Pokedex();
 
 // function to respond with JSON
 const respondJSON = (request, response, status, object) => {
@@ -17,19 +17,19 @@ const respondJSONMeta = (request, response, status) => {
 
 // getPokemon function
 const getPokemon = (request, response, params) => {
-    const responseJSON = {
-        message: 'This request has the required parameters',
-    };
-    
-    // check for valid param
-    if (!params.valid || params.valid !== 'true') {
-        responseJSON.message = 'Missing valid query parameter set to true';
-        responseJSON.id = 'badRequest';
+  const responseJSON = {
+    message: 'This request has the required parameters',
+  };
 
-        return respondJSON(request, response, 400, responseJSON);
-    }
-    
-    console.log(params);
+  // check for valid param
+  if (!params.valid || params.valid !== 'true') {
+    responseJSON.message = 'Missing valid query parameter set to true';
+    responseJSON.id = 'badRequest';
+
+    return respondJSON(request, response, 400, responseJSON);
+  }
+
+  return respondJSON(request, response, 200, responseJSON);
 };
 
 const getPokemonMeta = (request, response) => respondJSONMeta(request, response, 200);
