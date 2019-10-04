@@ -12,6 +12,7 @@ const urlStruct = {
   GET: {
     '/': htmlHandler.getIndex,
     '/style.css': htmlHandler.getCSS,
+    '/bundle.js': htmlHandler.getBundle,
     '/getUsers': jsonHandler.getUsers,
     '/notReal': jsonHandler.getNotReal,
     notFound: jsonHandler.notFound,
