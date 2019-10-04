@@ -1,4 +1,6 @@
 const users = {};
+const Pokedex = require('pokedex-promise-v2');
+const P = new Pokedex();
 
 // function to respond with JSON
 const respondJSON = (request, response, status, object) => {
@@ -13,35 +15,27 @@ const respondJSONMeta = (request, response, status) => {
   response.end();
 };
 
-// getUsers function
-const getUsers = (request, response) => {
-  // create responseJSON to send
-  const responseJSON = {
-    users,
-  };
+// getPokemon function
+const getPokemon = (request, response, params) => {
+    const responseJSON = {
+        message: 'This request has the required parameters',
+    };
+    
+    // check for valid param
+    if (!params.valid || params.valid !== 'true') {
+        responseJSON.message = 'Missing valid query parameter set to true';
+        responseJSON.id = 'badRequest';
 
-  // respond with 200
-  return respondJSON(request, response, 200, responseJSON);
+        return respondJSON(request, response, 400, responseJSON);
+    }
+    
+    console.log(params);
 };
 
-const getUsersMeta = (request, response) => respondJSONMeta(request, response, 200);
+const getPokemonMeta = (request, response) => respondJSONMeta(request, response, 200);
 
-// notReal function
-const getNotReal = (request, response) => {
-  // create responseJSON to send
-  const responseJSON = {
-    message: '404, Page Not Real',
-    id: 'notReal',
-  };
-
-  // respond with 404
-  return respondJSON(request, response, 404, responseJSON);
-};
-
-const getNotRealMeta = (request, response) => respondJSONMeta(request, response, 404);
-
-// function to add a user from a POST body
-const addUser = (request, response, body) => {
+// function to add a pokemon to favorites from POST body
+const addFavorite = (request, response, body) => {
   const responseJSON = {
     message: 'Name and age are both required.',
   };
@@ -86,10 +80,8 @@ const notFound = (request, response) => {
 
 // export methods
 module.exports = {
-  getUsers,
-  getUsersMeta,
-  getNotReal,
-  getNotRealMeta,
-  addUser,
+  getPokemon,
+  getPokemonMeta,
+  addFavorite,
   notFound,
 };

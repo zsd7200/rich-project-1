@@ -13,56 +13,56 @@ const urlStruct = {
     '/': htmlHandler.getIndex,
     '/style.css': htmlHandler.getCSS,
     '/bundle.js': htmlHandler.getBundle,
-    '/getUsers': jsonHandler.getUsers,
-    '/notReal': jsonHandler.getNotReal,
+    '/pokemon': jsonHandler.getPokemon,
     notFound: jsonHandler.notFound,
   },
   HEAD: {
-    '/getUsers': jsonHandler.getUsersMeta,
-    '/notReal': jsonHandler.getNotRealMeta,
+    '/pokemon': jsonHandler.getPokemonMeta,
   },
   POST: {
-    '/addUser': jsonHandler.addUser,
+    '/addFavorite': jsonHandler.addFavorite,
   },
 };
 
 
 // function to handle requests
 const onRequest = (request, response) => {
-  const parsedUrl = url.parse(request.url);
+    const parsedUrl = url.parse(request.url);
+    const params = query.parse(parsedUrl.query); // needed for checking valid and loggedIn params
 
-  if (parsedUrl.pathname === '/addUser') {
-    // variable to hold passed in data
-    const body = [];
 
-    // error handler
-    request.on('error', (err) => {
-      console.dir(err);
-      response.statusCode = 400;
-      response.end();
-    });
+    if (parsedUrl.pathname === '/addFavorite') {
+        // variable to hold passed in data
+        const body = [];
 
-    // add data to byte array
-    request.on('data', (chunk) => {
-      body.push(chunk);
-    });
+        // error handler
+        request.on('error', (err) => {
+          console.dir(err);
+          response.statusCode = 400;
+          response.end();
+        });
 
-    // on end of stream
-    request.on('end', () => {
-      // combine byte array and convert to string
-      const bodyString = Buffer.concat(body).toString();
+        // add data to byte array
+        request.on('data', (chunk) => {
+          body.push(chunk);
+        });
 
-      // parse string into object
-      const bodyParams = query.parse(bodyString);
+        // on end of stream
+        request.on('end', () => {
+          // combine byte array and convert to string
+          const bodyString = Buffer.concat(body).toString();
 
-      // run addUser
-      jsonHandler.addUser(request, response, bodyParams);
+          // parse string into object
+          const bodyParams = query.parse(bodyString);
+
+          // run addUser
+          jsonHandler.addFavorite(request, response, bodyParams);
     }); // otherwise run appropriate method
-  } else if (urlStruct[request.method][parsedUrl.pathname]) {
-    urlStruct[request.method][parsedUrl.pathname](request, response);
-  } else {
-    urlStruct[request.method].notFound(request, response);
-  }
+    } else if (urlStruct[request.method][parsedUrl.pathname]) {
+        urlStruct[request.method][parsedUrl.pathname](request, response, params);
+    } else {
+        urlStruct[request.method].notFound(request, response);
+    }
 };
 
 // start server
