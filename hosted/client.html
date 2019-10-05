@@ -17,7 +17,10 @@
     <section id="top">
         <h2>Pokemon Thing</h2>
         <div class="ui-widget">
-            <input id="input">
+            <form action="/pokemon" method="get">
+                <input id="input" name="name">
+                <button type="submit" id="getButton">Get Pokemon</button>
+            </form>
         </div>
     </section>
     <section id="content">

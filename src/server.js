@@ -17,7 +17,7 @@ const urlStruct = {
     notFound: jsonHandler.notFound,
   },
   HEAD: {
-    '/pokemon': jsonHandler.getPokemonMeta,
+    '/pokemonH': jsonHandler.getPokemonMeta,
   },
   POST: {
     '/addFavorite': jsonHandler.addFavorite,
@@ -29,7 +29,6 @@ const urlStruct = {
 const onRequest = (request, response) => {
   const parsedUrl = url.parse(request.url);
   const params = query.parse(parsedUrl.query); // needed for checking valid and loggedIn params
-
 
   if (parsedUrl.pathname === '/addFavorite') {
     // variable to hold passed in data

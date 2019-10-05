@@ -1,6 +1,7 @@
 const users = {};
-// const Pokedex = require('pokedex-promise-v2');
-// const P = new Pokedex();
+const Pokedex = require('pokedex-promise-v2');
+
+const P = new Pokedex();
 
 // function to respond with JSON
 const respondJSON = (request, response, status, object) => {
@@ -17,19 +18,39 @@ const respondJSONMeta = (request, response, status) => {
 
 // getPokemon function
 const getPokemon = (request, response, params) => {
-  const responseJSON = {
-    message: 'This request has the required parameters',
+  // default is 404 since it would have returned nothing even if it had a valid param
+  let responseJSON = {
+    message: 'This request has the required parameters, but no data was found',
+    id: 'noneFound',
   };
 
   // check for valid param
-  if (!params.valid || params.valid !== 'true') {
+  if (!params.name) {
     responseJSON.message = 'Missing valid query parameter set to true';
     responseJSON.id = 'badRequest';
 
     return respondJSON(request, response, 400, responseJSON);
   }
 
-  return respondJSON(request, response, 200, responseJSON);
+  // get pokemon data and set it equal to responseJSON
+  P.getPokemonByName(params.name, (res, err) => {
+    if (!err) {
+      responseJSON = res;
+    } else {
+      console.log(err);
+    }
+  });
+
+  // set a 1 second timer to let PokeAPI get data, otherwise it wouldn't
+  // return data until a refresh occured
+  setTimeout(() => {
+    if (!responseJSON.message) {
+      return respondJSON(request, response, 200, responseJSON);
+    }
+    return respondJSON(request, response, 404, responseJSON);
+  }, 1200);
+
+  return respondJSON(request, response, 404, responseJSON);
 };
 
 const getPokemonMeta = (request, response) => respondJSONMeta(request, response, 200);
