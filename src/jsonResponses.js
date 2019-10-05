@@ -48,9 +48,9 @@ const getPokemon = (request, response, params) => {
       return respondJSON(request, response, 200, responseJSON);
     }
     return respondJSON(request, response, 404, responseJSON);
-  }, 1500);
+  }, 1250);
 
-  return respondJSON(request, response, 404, responseJSON);
+  return true;
 };
 
 const getPokemonMeta = (request, response) => respondJSONMeta(request, response, 200);
