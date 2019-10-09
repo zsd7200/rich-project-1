@@ -58,7 +58,6 @@ html, body {
 }
 
 .stat {
-    display: inline-block;
     height: 10px;
     width: 5px;
     background-color: green;

@@ -1,6 +1,6 @@
 // array of all pokemon names
 const allPokemon = [
-    "Abomasnow", "Abomasnow-Mega", "Abra", "Absol", "Absol-Mega", "Accelgor", "Aegislash-Blade", "Aegislash-Shield", "Aerodactyl", "Aerodactyl-Mega", "Aggron", "Aggron-Mega", "Aipom", "Alakazam", "Alakazam-Mega", "Alomomola", "Altaria", "Altaria-Mega", "Amaura", "Ambipom", "Amoonguss", "Ampharos", "Ampharos-Mega", "Anorith", "Araquanid", "Arbok", "Arcanine", "Arceus", "Archen", "Archeops", "Ariados", "Armaldo", "Aromatisse", "Aron", "Articuno", "Audino", "Audino-Mega", "Aurorus", "Avalugg", "Axew", "Azelf", "Azumarill", "Azurill", "Bagon", "Baltoy", "Banette", "Banette-Mega", "Barbaracle", "Barboach", "Basculin Blue-Striped", "Basculin Red-Striped", "Bastiodon", "Bayleef", "Beartic", "Beautifly", "Beedrill", "Beedrill-Mega", "Beheeyem", "Beldum", "Bellossom", "Bellsprout", "Bergmite", "Bewear", "Bibarel", "Bidoof", "Binacle", "Bisharp", "Blacephalon", "Blastoise", "Blastoise-Mega", "Blaziken", "Blaziken-Mega", "Blissey", "Blitzle", "Boldore", "Bonsly", "Bouffalant", "Bounsweet", "Braixen", "Braviary", "Breloom", "Brionne", "Bronzong", "Bronzor", "Bruxish", "Budew", "Buizel", "Bulbasaur", "Buneary", "Bunnelby", "Burmy", "Butterfree", "Buzzwole", "Cacnea", "Cacturne", "Camerupt", "Camerupt-Mega", "Carbink", "Carnivine", "Carracosta", "Carvanha", "Cascoon", "Castform", "Caterpie", "Celebi", "Celesteela", "Chandelure", "Chansey", "Charizard", "Charizard-Mega-X", "Charizard-Mega-Y", "Charjabug", "Charmander", "Charmeleon", "Chatot", "Cherrim", "Cherubi", "Chesnaught", "Chespin", "Chikorita", "Chimchar", "Chimecho", "Chinchou", "Chingling", "Cinccino", "Clamperl", "Clauncher", "Clawitzer", "Claydol", "Clefable", "Clefairy", "Cleffa", "Cloyster", "Cobalion", "Cofagrigus", "Combee", "Combusken", "Comfey", "Conkeldurr", "Corphish", "Corsola", "Cosmoem", "Cosmog", "Cottonee", "Crabominable", "Crabrawler", "Cradily", "Cranidos", "Crawdaunt", "Cresselia", "Croagunk", "Crobat", "Croconaw", "Crustle", "Cryogonal", "Cubchoo", "Cubone", "Cutiefly", "Cyndaquil", "Darkrai", "Darmanitan-Standard", "Darmanitan-Zen", "Dartrix", "Darumaka", "Decidueye", "Dedenne", "Deerling", "Deino", "Delcatty", "Delibird", "Delphox", "Deoxys-Normal", "Deoxys-Attack", "Deoxys-Defense", "Deoxys-Speed", "Dewgong", "Dewott", "Dewpider", "Dhelmise", "Dialga", "Diancie", "Diancie-Mega", "Diggersby", "Diglett", "Diglett-Alola", "Ditto", "Dodrio", "Doduo", "Donphan", "Doublade", "Dragalge", "Dragonair", "Dragonite", "Drampa", "Drapion", "Dratini", "Drifblim", "Drifloon", "Drilbur", "Drowzee", "Druddigon", "Ducklett", "Dugtrio", "Dugtrio-Alola", "Dunsparce", "Duosion", "Durant", "Dusclops", "Dusknoir", "Duskull", "Dustox", "Dwebble", "Eelektrik", "Eelektross", "Eevee", "Ekans", "Electabuzz", "Electivire", "Electrike", "Electrode", "Elekid", "Elgyem", "Emboar", "Emolga", "Empoleon", "Entei", "Escavalier", "Espeon", "Espurr", "Excadrill", "Exeggcute", "Exeggutor", "Exeggutor-Alola", "Exploud", "Farfetch\'d", "Fearow", "Feebas", "Fennekin", "Feraligatr", "Ferroseed", "Ferrothorn", "Finneon", "Flaaffy", "Flabebe", "Flareon", "Fletchinder", "Fletchling", "Floatzel", "Floette", "Florges", "Flygon", "Fomantis", "Foongus", "Forretress", "Fraxure", "Frillish", "Froakie", "Frogadier", "Froslass", "Furfrou", "Furret", "Gabite", "Gallade", "Gallade-Mega", "Galvantula", "Garbodor", "Garchomp", "Garchomp-Mega", "Gardevoir", "Gardevoir-Mega", "Gastly", "Gastrodon", "Genesect", "Gengar", "Gengar-Mega", "Geodude", "Geodude-Alola", "Gible", "Gigalith", "Girafarig", "Giratina", "Giratina-Origin", "Glaceon", "Glalie", "Glalie-Mega", "Glameow", "Gligar", "Gliscor", "Gloom", "Gogoat", "Golbat", "Goldeen", "Golduck", "Golem", "Golem-Alola", "Golett", "Golisopod", "Golurk", "Goodra", "Goomy", "Gorebyss", "Gothita", "Gothitelle", "Gothorita", "Gourgeist", "Gourgeist-Small", "Gourgeist-Large", "Gourgeist-Super", "Granbull", "Graveler", "Graveler-Alola", "Greninja", "Greninja-Ash", "Grimer", "Grimer-Alola", "Grotle", "Groudon", "Grovyle", "Growlithe", "Grubbin", "Grumpig", "Gulpin", "Gumshoos", "Gurdurr", "Guzzlord", "Gyarados", "Gyarados-Mega", "Hakamo-o", "Happiny", "Hariyama", "Haunter", "Hawlucha", "Haxorus", "Heatmor", "Heatran", "Heliolisk", "Helioptile", "Heracross", "Heracross-Mega", "Herdier", "Hippopotas", "Hippowdon", "Hitmonchan", "Hitmonlee", "Hitmontop", "Ho-Oh", "Honchkrow", "Honedge", "Hoopa", "Hoopa-Unbound", "Hoothoot", "Hoppip", "Horsea", "Houndoom", "Houndoom-Mega", "Houndour", "Huntail", "Hydreigon", "Hypno", "Igglybuff", "Illumise", "Incineroar", "Infernape", "Inkay", "Ivysaur", "Jangmo-o", "Jellicent", "Jigglypuff", "Jirachi", "Jolteon", "Joltik", "Jumpluff", "Jynx", "Kabuto", "Kabutops", "Kadabra", "Kakuna", "Kangaskhan", "Kangaskhan-Mega", "Karrablast", "Kartana", "Kecleon", "Keldeo-Ordinary", "Keldeo-Resolute", "Kingdra", "Kingler", "Kirlia", "Klang", "Klefki", "Klink", "Klinklang", "Koffing", "Komala", "Kommo-o", "Krabby", "Kricketot", "Kricketune", "Krokorok", "Krookodile", "Kyogre", "Kyurem", "Kyurem-Black", "Kyurem-White", "Lairon", "Lampent", "Landorus-Incarnate", "Landorus-Therian", "Lanturn", "Lapras", "Larvesta", "Larvitar", "Latias", "Latias-Mega", "Latios", "Latios-Mega", "Leafeon", "Leavanny", "Ledian", "Ledyba", "Lickilicky", "Lickitung", "Liepard", "Lileep", "Lilligant", "Lillipup", "Linoone", "Litleo", "Litten", "Litwick", "Lombre", "Lopunny", "Lopunny-Mega", "Lotad", "Loudred", "Lucario", "Lucario-Mega", "Ludicolo", "Lugia", "Lumineon", "Lunala", "Lunatone", "Lurantis", "Luvdisc", "Luxio", "Luxray", "Lycanroc", "Lycanroc-Dusk", "Lycanroc-Midnight", "Machamp", "Machoke", "Machop", "Magby", "Magcargo", "Magearna", "Magikarp", "Magmar", "Magmortar", "Magnemite", "Magneton", "Magnezone", "Makuhita", "Malamar", "Mamoswine", "Manaphy", "Mandibuzz", "Manectric", "Manectric-Mega", "Mankey", "Mantine", "Mantyke", "Maractus", "Mareanie", "Mareep", "Marill", "Marowak", "Marowak-Alola", "Marshadow", "Marshtomp", "Masquerain", "Mawile", "Mawile-Mega", "Medicham", "Medicham-Mega", "Meditite", "Meganium", "Meloetta-Aria", "Meloetta-Pirouette", "Meowstic", "Meowth", "Meowth-Alola", "Mesprit", "Metagross", "Metagross-Mega", "Metang", "Metapod", "Mew", "Mewtwo", "Mewtwo-Mega-X", "Mewtwo-Mega-Y", "Mienfoo", "Mienshao", "Mightyena", "Milotic", "Miltank", "Mime Jr.", "Mimikyu", "Minccino", "Minior-Meteor", "Minior-Core", "Minun", "Misdreavus", "Mismagius", "Moltres", "Monferno", "Morelull", "Mothim", "Mr. Mime", "Mudbray", "Mudkip", "Mudsdale", "Muk", "Muk-Alola", "Munchlax", "Munna", "Murkrow", "Musharna", "Naganadel", "Natu", "Necrozma", "Nidoking", "Nidoqueen", "Nidoran-F", "Nidoran-M", "Nidorina", "Nidorino", "Nihilego", "Nincada", "Ninetales", "Ninetails-Alola", "Ninjask", "Noctowl", "Noibat", "Noivern", "Nosepass", "Numel", "Nuzleaf", "Octillery", "Oddish", "Omanyte", "Omastar", "Onix", "Oranguru", "Oricorio-Baile", "Oricorio-Pa'u", "Oricorio-Pom-Pom", "Oricorio-Sensu", "Oshawott", "Pachirisu", "Palkia", "Palossand", "Palpitoad", "Pancham", "Pangoro", "Panpour", "Pansage", "Pansear", "Paras", "Parasect", "Passimian", "Patrat", "Pawniard", "Pelipper", "Persian", "Persian-Alola", "Petilil", "Phanpy", "Phantump", "Pheromosa", "Phione", "Pichu", "Pidgeot", "Pidgeot-Mega", "Pidgeotto", "Pidgey", "Pidove", "Pignite", "Pikachu", "Pikipek", "Piloswine", "Pineco", "Pinsir", "Pinsir-Mega", "Piplup", "Plusle", "Poipole", "Politoed", "Poliwag", "Poliwhirl", "Poliwrath", "Ponyta", "Poochyena", "Popplio", "Porygon2", "Porygon", "Porygon-Z", "Primarina", "Primeape", "Prinplup", "Probopass", "Psyduck", "Pumpkaboo", "Pumpkaboo-Small", "Pumpkaboo-Large", "Pumpkaboo-Super", "Pupitar", "Purrloin", "Purugly", "Pyroar", "Pyukumuku", "Quagsire", "Quilava", "Quilladin", "Qwilfish", "Raichu", "Raichu-Alola", "Raikou", "Ralts", "Rampardos", "Rapidash", "Raticate", "Raticate-Alola", "Rattata", "Ratatta-Alola", "Rayquaza", "Rayquaza-Mega", "Regice", "Regigigas", "Regirock", "Registeel", "Relicanth", "Remoraid", "Reshiram", "Reuniclus", "Rhydon", "Rhyhorn", "Rhyperior", "Ribombee", "Riolu", "Rockruff", "Roggenrola", "Roselia", "Roserade", "Rotom", "Rotom-Fan", "Rotom-Frost", "Rotom-Heat", "Rotom-Mow", "Rotom-Wash", "Rowlet", "Rufflet", "Sableye", "Sableye-Mega", "Salamence", "Salamence-Mega", "Salandit", "Salazzle", "Samurott", "Sandile", "Sandshrew", "Sandshrew-Alola", "Sandslash", "Sandslash-Alola", "Sandygast", "Sawk", "Sawsbuck", "Scatterbug", "Sceptile", "Sceptile-Mega", "Scizor", "Scizor-Mega", "Scolipede", "Scrafty", "Scraggy", "Scyther", "Seadra", "Seaking", "Sealeo", "Seedot", "Seel", "Seismitoad", "Sentret", "Serperior", "Servine", "Seviper", "Sewaddle", "Sharpedo", "Sharpedo-Mega", "Shaymin", "Shaymin-Sky", "Shedinja", "Shelgon", "Shellder", "Shellos", "Shelmet", "Shieldon", "Shiftry", "Shiinotic", "Shinx", "Shroomish", "Shuckle", "Shuppet", "Sigilyph", "Silcoon", "Silvally", "Simipour", "Simisage", "Simisear", "Skarmory", "Skiddo", "Skiploom", "Skitty", "Skorupi", "Skrelp", "Skuntank", "Slaking", "Slakoth", "Sliggoo", "Slowbro", "Slowbro-Mega", "Slowking", "Slowpoke", "Slugma", "Slurpuff", "Smeargle", "Smoochum", "Sneasel", "Snivy", "Snorlax", "Snorunt", "Snover", "Snubbull", "Solgaleo", "Solosis", "Solrock", "Spearow", "Spewpa", "Spheal", "Spinarak", "Spinda", "Spiritomb", "Spoink", "Spritzee", "Squirtle", "Stakataka", "Stantler", "Staraptor", "Staravia", "Starly", "Starmie", "Staryu", "Steelix", "Steelix-Mega", "Steenee", "Stoutland", "Stufful", "Stunfisk", "Stunky", "Sudowoodo", "Suicune", "Sunflora", "Sunkern", "Surskit", "Swablu", "Swadloon", "Swalot", "Swampert", "Swampert-Mega", "Swanna", "Swellow", "Swinub", "Swirlix", "Swoobat", "Sylveon", "Taillow", "Talonflame", "Tangela", "Tangrowth", "Tapu Bulu", "Tapu Fini", "Tapu Koko", "Tapu Lele", "Tauros", "Teddiursa", "Tentacool", "Tentacruel", "Tepig", "Terrakion", "Throh", "Thundurus-Incarnate", "Thundurus-Therian", "Timburr", "Tirtouga", "Togedemaru", "Togekiss", "Togepi", "Togetic", "Torchic", "Torkoal", "Tornadus-Incarnate", "Tornadus-Therian", "Torracat", "Torterra", "Totodile", "Toucannon", "Toxapex", "Toxicroak", "Tranquill", "Trapinch", "Treecko", "Trevenant", "Tropius", "Trubbish", "Trumbeak", "Tsareena", "Turtonator", "Turtwig", "Tympole", "Tynamo", "Type: Null", "Typhlosion", "Tyranitar", "Tyranitar-Mega", "Tyrantrum", "Tyrogue", "Tyrunt", "Umbreon", "Unfezant", "Unown", "Ursaring", "Uxie", "Vanillish", "Vanillite", "Vanilluxe", "Vaporeon", "Venipede", "Venomoth", "Venonat", "Venusaur", "Venusaur-Mega", "Vespiquen", "Vibrava", "Victini", "Victreebel", "Vigoroth", "Vikavolt", "Vileplume", "Virizion", "Vivillon", "Volbeat", "Volcanion", "Volcarona", "Voltorb", "Vullaby", "Vulpix", "Vulpix-Alola", "Wailmer", "Wailord", "Walrein", "Wartortle", "Watchog", "Weavile", "Weedle", "Weepinbell", "Weezing", "Whimsicott", "Whirlipede", "Whiscash", "Whismur", "Wigglytuff", "Wimpod", "Wingull", "Wishiwashi-Solo", "Wishiwashi-School", "Wobbuffet", "Woobat", "Wooper", "Wormadam-Plant", "Wormadam-Sandy", "Wormadam-Trash", "Wurmple", "Wynaut", "Xatu", "Xerneas", "Xurkitree", "Yamask", "Yanma", "Yanmega", "Yungoos", "Yveltal", "Zangoose", "Zapdos", "Zebstrika", "Zekrom", "Zeraora", "Zigzagoon", "Zoroark", "Zorua", "Zubat", "Zweilous", "Zygarde", "Zygarde-10%", "Zygarde-Complete"
+    "Abomasnow", "Abomasnow Mega", "Abra", "Absol", "Absol Mega", "Accelgor", "Aegislash Shield", "Aegislash Blade", "Aerodactyl", "Aerodactyl Mega", "Aggron", "Aggron Mega", "Aipom", "Alakazam", "Alakazam Mega", "Alomomola", "Altaria", "Altaria Mega", "Amaura", "Ambipom", "Amoonguss", "Ampharos", "Ampharos Mega", "Anorith", "Araquanid", "Arbok", "Arcanine", "Arceus", "Archen", "Archeops", "Ariados", "Armaldo", "Aromatisse", "Aron", "Articuno", "Audino", "Audino Mega", "Aurorus", "Avalugg", "Axew", "Azelf", "Azumarill", "Azurill", "Bagon", "Baltoy", "Banette", "Banette Mega", "Barbaracle", "Barboach", "Basculin Blue-Striped", "Basculin Red-Striped", "Bastiodon", "Bayleef", "Beartic", "Beautifly", "Beedrill", "Beedrill Mega", "Beheeyem", "Beldum", "Bellossom", "Bellsprout", "Bergmite", "Bewear", "Bibarel", "Bidoof", "Binacle", "Bisharp", "Blacephalon", "Blastoise", "Blastoise Mega", "Blaziken", "Blaziken Mega", "Blissey", "Blitzle", "Boldore", "Bonsly", "Bouffalant", "Bounsweet", "Braixen", "Braviary", "Breloom", "Brionne", "Bronzong", "Bronzor", "Bruxish", "Budew", "Buizel", "Bulbasaur", "Buneary", "Bunnelby", "Burmy", "Butterfree", "Buzzwole", "Cacnea", "Cacturne", "Camerupt", "Camerupt Mega", "Carbink", "Carnivine", "Carracosta", "Carvanha", "Cascoon", "Castform", "Castform Rainy", "Castform Snowy", "Castform Sunny", "Caterpie", "Celebi", "Celesteela", "Chandelure", "Chansey", "Charizard", "Charizard Mega-X", "Charizard Mega-Y", "Charjabug", "Charmander", "Charmeleon", "Chatot", "Cherrim", "Cherubi", "Chesnaught", "Chespin", "Chikorita", "Chimchar", "Chimecho", "Chinchou", "Chingling", "Cinccino", "Clamperl", "Clauncher", "Clawitzer", "Claydol", "Clefable", "Clefairy", "Cleffa", "Cloyster", "Cobalion", "Cofagrigus", "Combee", "Combusken", "Comfey", "Conkeldurr", "Corphish", "Corsola", "Cosmoem", "Cosmog", "Cottonee", "Crabominable", "Crabrawler", "Cradily", "Cranidos", "Crawdaunt", "Cresselia", "Croagunk", "Crobat", "Croconaw", "Crustle", "Cryogonal", "Cubchoo", "Cubone", "Cutiefly", "Cyndaquil", "Darkrai", "Darmanitan Standard", "Darmanitan Zen", "Dartrix", "Darumaka", "Decidueye", "Dedenne", "Deerling", "Deino", "Delcatty", "Delibird", "Delphox", "Deoxys Normal", "Deoxys Attack", "Deoxys Defense", "Deoxys Speed", "Dewgong", "Dewott", "Dewpider", "Dhelmise", "Dialga", "Diancie", "Diancie Mega", "Diggersby", "Diglett", "Diglett Alola", "Ditto", "Dodrio", "Doduo", "Donphan", "Doublade", "Dragalge", "Dragonair", "Dragonite", "Drampa", "Drapion", "Dratini", "Drifblim", "Drifloon", "Drilbur", "Drowzee", "Druddigon", "Ducklett", "Dugtrio", "Dugtrio Alola", "Dunsparce", "Duosion", "Durant", "Dusclops", "Dusknoir", "Duskull", "Dustox", "Dwebble", "Eelektrik", "Eelektross", "Eevee", "Ekans", "Electabuzz", "Electivire", "Electrike", "Electrode", "Elekid", "Elgyem", "Emboar", "Emolga", "Empoleon", "Entei", "Escavalier", "Espeon", "Espurr", "Excadrill", "Exeggcute", "Exeggutor", "Exeggutor Alola", "Exploud", "Farfetch\'d", "Fearow", "Feebas", "Fennekin", "Feraligatr", "Ferroseed", "Ferrothorn", "Finneon", "Flaaffy", "Flabebe", "Flareon", "Fletchinder", "Fletchling", "Floatzel", "Floette", "Florges", "Flygon", "Fomantis", "Foongus", "Forretress", "Fraxure", "Frillish", "Froakie", "Frogadier", "Froslass", "Furfrou", "Furret", "Gabite", "Gallade", "Gallade Mega", "Galvantula", "Garbodor", "Garchomp", "Garchomp Mega", "Gardevoir", "Gardevoir Mega", "Gastly", "Gastrodon", "Genesect", "Gengar", "Gengar Mega", "Geodude", "Geodude Alola", "Gible", "Gigalith", "Girafarig", "Giratina", "Giratina Origin", "Glaceon", "Glalie", "Glalie Mega", "Glameow", "Gligar", "Gliscor", "Gloom", "Gogoat", "Golbat", "Goldeen", "Golduck", "Golem", "Golem Alola", "Golett", "Golisopod", "Golurk", "Goodra", "Goomy", "Gorebyss", "Gothita", "Gothitelle", "Gothorita", "Gourgeist", "Gourgeist Small", "Gourgeist Large", "Gourgeist Super", "Granbull", "Graveler", "Graveler Alola", "Greninja", "Greninja Ash", "Grimer", "Grimer Alola", "Grotle", "Groudon", "Groudon Primal", "Grovyle", "Growlithe", "Grubbin", "Grumpig", "Gulpin", "Gumshoos", "Gurdurr", "Guzzlord", "Gyarados", "Gyarados Mega", "Hakamo-o", "Happiny", "Hariyama", "Haunter", "Hawlucha", "Haxorus", "Heatmor", "Heatran", "Heliolisk", "Helioptile", "Heracross", "Heracross Mega", "Herdier", "Hippopotas", "Hippowdon", "Hitmonchan", "Hitmonlee", "Hitmontop", "Ho-Oh", "Honchkrow", "Honedge", "Hoopa", "Hoopa Unbound", "Hoothoot", "Hoppip", "Horsea", "Houndoom", "Houndoom Mega", "Houndour", "Huntail", "Hydreigon", "Hypno", "Igglybuff", "Illumise", "Incineroar", "Infernape", "Inkay", "Ivysaur", "Jangmo-o", "Jellicent", "Jigglypuff", "Jirachi", "Jolteon", "Joltik", "Jumpluff", "Jynx", "Kabuto", "Kabutops", "Kadabra", "Kakuna", "Kangaskhan", "Kangaskhan Mega", "Karrablast", "Kartana", "Kecleon", "Keldeo Ordinary", "Keldeo Resolute", "Kingdra", "Kingler", "Kirlia", "Klang", "Klefki", "Klink", "Klinklang", "Koffing", "Komala", "Kommo-o", "Krabby", "Kricketot", "Kricketune", "Krokorok", "Krookodile", "Kyogre", "Kyogre Primal", "Kyurem", "Kyurem Black", "Kyurem White", "Lairon", "Lampent", "Landorus Incarnate", "Landorus Therian", "Lanturn", "Lapras", "Larvesta", "Larvitar", "Latias", "Latias Mega", "Latios", "Latios Mega", "Leafeon", "Leavanny", "Ledian", "Ledyba", "Lickilicky", "Lickitung", "Liepard", "Lileep", "Lilligant", "Lillipup", "Linoone", "Litleo", "Litten", "Litwick", "Lombre", "Lopunny", "Lopunny Mega", "Lotad", "Loudred", "Lucario", "Lucario Mega", "Ludicolo", "Lugia", "Lumineon", "Lunala", "Lunatone", "Lurantis", "Luvdisc", "Luxio", "Luxray", "Lycanroc", "Lycanroc Dusk", "Lycanroc Midnight", "Machamp", "Machoke", "Machop", "Magby", "Magcargo", "Magearna", "Magikarp", "Magmar", "Magmortar", "Magnemite", "Magneton", "Magnezone", "Makuhita", "Malamar", "Mamoswine", "Manaphy", "Mandibuzz", "Manectric", "Manectric Mega", "Mankey", "Mantine", "Mantyke", "Maractus", "Mareanie", "Mareep", "Marill", "Marowak", "Marowak Alola", "Marshadow", "Marshtomp", "Masquerain", "Mawile", "Mawile Mega", "Medicham", "Medicham Mega", "Meditite", "Meganium", "Meloetta Aria", "Meloetta Pirouette", "Meowstic Male", "Meowstic Female", "Meowth", "Meowth Alola", "Mesprit", "Metagross", "Metagross Mega", "Metang", "Metapod", "Mew", "Mewtwo", "Mewtwo Mega-X", "Mewtwo Mega-Y", "Mienfoo", "Mienshao", "Mightyena", "Milotic", "Miltank", "Mime Jr.", "Mimikyu", "Minccino", "Minior Meteor", "Minior Core", "Minun", "Misdreavus", "Mismagius", "Moltres", "Monferno", "Morelull", "Mothim", "Mr. Mime", "Mudbray", "Mudkip", "Mudsdale", "Muk", "Muk Alola", "Munchlax", "Munna", "Murkrow", "Musharna", "Naganadel", "Natu", "Necrozma", "Necrozma Ultra", "Nidoking", "Nidoqueen", "Nidoran F", "Nidoran M", "Nidorina", "Nidorino", "Nihilego", "Nincada", "Ninetales", "Ninetails Alola", "Ninjask", "Noctowl", "Noibat", "Noivern", "Nosepass", "Numel", "Nuzleaf", "Octillery", "Oddish", "Omanyte", "Omastar", "Onix", "Oranguru", "Oricorio Baile", "Oricorio Pa'u", "Oricorio Pom-Pom", "Oricorio Sensu", "Oshawott", "Pachirisu", "Palkia", "Palossand", "Palpitoad", "Pancham", "Pangoro", "Panpour", "Pansage", "Pansear", "Paras", "Parasect", "Passimian", "Patrat", "Pawniard", "Pelipper", "Persian", "Persian Alola", "Petilil", "Phanpy", "Phantump", "Pheromosa", "Phione", "Pichu", "Pidgeot", "Pidgeot Mega", "Pidgeotto", "Pidgey", "Pidove", "Pignite", "Pikachu", "Pikipek", "Piloswine", "Pineco", "Pinsir", "Pinsir Mega", "Piplup", "Plusle", "Poipole", "Politoed", "Poliwag", "Poliwhirl", "Poliwrath", "Ponyta", "Poochyena", "Popplio", "Porygon2", "Porygon", "Porygon-Z", "Primarina", "Primeape", "Prinplup", "Probopass", "Psyduck", "Pumpkaboo", "Pumpkaboo Small", "Pumpkaboo Large", "Pumpkaboo Super", "Pupitar", "Purrloin", "Purugly", "Pyroar", "Pyukumuku", "Quagsire", "Quilava", "Quilladin", "Qwilfish", "Raichu", "Raichu Alola", "Raikou", "Ralts", "Rampardos", "Rapidash", "Raticate", "Raticate Alola", "Rattata", "Ratatta Alola", "Rayquaza", "Rayquaza Mega", "Regice", "Regigigas", "Regirock", "Registeel", "Relicanth", "Remoraid", "Reshiram", "Reuniclus", "Rhydon", "Rhyhorn", "Rhyperior", "Ribombee", "Riolu", "Rockruff", "Roggenrola", "Roselia", "Roserade", "Rotom", "Rotom Fan", "Rotom Frost", "Rotom Heat", "Rotom Mow", "Rotom Wash", "Rowlet", "Rufflet", "Sableye", "Sableye Mega", "Salamence", "Salamence Mega", "Salandit", "Salazzle", "Samurott", "Sandile", "Sandshrew", "Sandshrew Alola", "Sandslash", "Sandslash Alola", "Sandygast", "Sawk", "Sawsbuck", "Scatterbug", "Sceptile", "Sceptile Mega", "Scizor", "Scizor Mega", "Scolipede", "Scrafty", "Scraggy", "Scyther", "Seadra", "Seaking", "Sealeo", "Seedot", "Seel", "Seismitoad", "Sentret", "Serperior", "Servine", "Seviper", "Sewaddle", "Sharpedo", "Sharpedo Mega", "Shaymin", "Shaymin Sky", "Shedinja", "Shelgon", "Shellder", "Shellos", "Shelmet", "Shieldon", "Shiftry", "Shiinotic", "Shinx", "Shroomish", "Shuckle", "Shuppet", "Sigilyph", "Silcoon", "Silvally", "Simipour", "Simisage", "Simisear", "Skarmory", "Skiddo", "Skiploom", "Skitty", "Skorupi", "Skrelp", "Skuntank", "Slaking", "Slakoth", "Sliggoo", "Slowbro", "Slowbro Mega", "Slowking", "Slowpoke", "Slugma", "Slurpuff", "Smeargle", "Smoochum", "Sneasel", "Snivy", "Snorlax", "Snorunt", "Snover", "Snubbull", "Solgaleo", "Solosis", "Solrock", "Spearow", "Spewpa", "Spheal", "Spinarak", "Spinda", "Spiritomb", "Spoink", "Spritzee", "Squirtle", "Stakataka", "Stantler", "Staraptor", "Staravia", "Starly", "Starmie", "Staryu", "Steelix", "Steelix Mega", "Steenee", "Stoutland", "Stufful", "Stunfisk", "Stunky", "Sudowoodo", "Suicune", "Sunflora", "Sunkern", "Surskit", "Swablu", "Swadloon", "Swalot", "Swampert", "Swampert Mega", "Swanna", "Swellow", "Swinub", "Swirlix", "Swoobat", "Sylveon", "Taillow", "Talonflame", "Tangela", "Tangrowth", "Tapu Bulu", "Tapu Fini", "Tapu Koko", "Tapu Lele", "Tauros", "Teddiursa", "Tentacool", "Tentacruel", "Tepig", "Terrakion", "Throh", "Thundurus Incarnate", "Thundurus Therian", "Timburr", "Tirtouga", "Togedemaru", "Togekiss", "Togepi", "Togetic", "Torchic", "Torkoal", "Tornadus Incarnate", "Tornadus Therian", "Torracat", "Torterra", "Totodile", "Toucannon", "Toxapex", "Toxicroak", "Tranquill", "Trapinch", "Treecko", "Trevenant", "Tropius", "Trubbish", "Trumbeak", "Tsareena", "Turtonator", "Turtwig", "Tympole", "Tynamo", "Type: Null", "Typhlosion", "Tyranitar", "Tyranitar Mega", "Tyrantrum", "Tyrogue", "Tyrunt", "Umbreon", "Unfezant", "Unown", "Ursaring", "Uxie", "Vanillish", "Vanillite", "Vanilluxe", "Vaporeon", "Venipede", "Venomoth", "Venonat", "Venusaur", "Venusaur Mega", "Vespiquen", "Vibrava", "Victini", "Victreebel", "Vigoroth", "Vikavolt", "Vileplume", "Virizion", "Vivillon", "Volbeat", "Volcanion", "Volcarona", "Voltorb", "Vullaby", "Vulpix", "Vulpix Alola", "Wailmer", "Wailord", "Walrein", "Wartortle", "Watchog", "Weavile", "Weedle", "Weepinbell", "Weezing", "Whimsicott", "Whirlipede", "Whiscash", "Whismur", "Wigglytuff", "Wimpod", "Wingull", "Wishiwashi Solo", "Wishiwashi School", "Wobbuffet", "Woobat", "Wooper", "Wormadam Plant", "Wormadam Sandy", "Wormadam Trash", "Wurmple", "Wynaut", "Xatu", "Xerneas", "Xurkitree", "Yamask", "Yanma", "Yanmega", "Yungoos", "Yveltal", "Zangoose", "Zapdos", "Zebstrika", "Zekrom", "Zeraora", "Zigzagoon", "Zoroark", "Zorua", "Zubat", "Zweilous", "Zygarde", "Zygarde 10%", "Zygarde Complete"
 ];
 
 // type names with bulbapedia image links
@@ -33,7 +33,7 @@ const randomPoke = () => {
 
 // modified from:
 // https://flaviocopes.com/how-to-uppercase-first-letter-javascript/
-const capitalize = (string) => {
+const handleName = (string) => {
     
     let newString = "";
     
@@ -55,10 +55,16 @@ const capitalize = (string) => {
             newString = "Farfetch'd";
             break;
         case "nidoran-m":
-            newString = "Nidoran&#9794;";
+            newString = "Nidoran &#9794;";
+            break;
+        case "meowstic-male":
+            newString = "Meowstic &#9794;";
             break;
         case "nidoran-f":
-            newString = "Nidoran&#9792;";
+            newString = "Nidoran &#9792;";
+            break;
+        case "meowstic-female":
+            newString = "Meowstic &#9792;";
             break;
         case "porygon-z":
             newString = "Porygon-Z";
@@ -149,6 +155,33 @@ const capitalize = (string) => {
         case "zygarde-complete":
             newString = "Zygarde - Complete Forme";
             break;
+        case "ho-oh":
+            newString = "Ho-Oh";
+            break;
+        case "thundurus-incarnate":
+            newString = "Thundurus - Incarnate Forme";
+            break;
+        case "thundurus-therian":
+            newString = "Thundurus - Therian Forme";
+            break;
+        case "tornadus-incarnate":
+            newString = "Tornadus - Incarnate Forme";
+            break;
+        case "tornadus-therian":
+            newString = "Tornadus - Therian Forme";
+            break;
+        case "landorus-incarnate":
+            newString = "Landorus - Incarnate Forme";
+            break;
+        case "landorus-therian":
+            newString = "Landorus - Therian Forme";
+            break;
+        case "mime-jr":
+            newString = "Mime Jr.";
+            break;
+        case "mr-mime":
+            newString = "Mr. Mime";
+            break;
             
         // pumpkaboos and gourgeists get their own section for being such a pain
         case "pumpkaboo-small":
@@ -194,23 +227,16 @@ const capitalize = (string) => {
             // create a newString variable with a capital first letter
             newString = string.charAt(0).toUpperCase() + string.slice(1);
         
-            // check if mega (not char or mewtwo)
-            if(newString.includes("mega")) {
+            // check if mega, alola, or primal
+            if(newString.includes("mega") || newString.includes("primal") || newString.includes("alola") || newString.includes("ultra")) {
                 for(let i = 0; i < newString.length; i++)
                     if(newString[i] === "-") {
                         const beforeDash = newString.slice(0, i);
                         const afterDash = newString.charAt(i + 1).toUpperCase() + newString.slice(i + 2);
-                        newString = afterDash + " " + beforeDash;
-                    }
-            }
-            
-            // check if alolan
-            if(newString.includes("alola")) {
-                for(let i = 0; i < newString.length; i++)
-                    if(newString[i] === "-") {
-                        const beforeDash = newString.slice(0, i);
-                        const afterDash = newString.charAt(i + 1).toUpperCase() + newString.slice(i + 2);
-                        newString = afterDash + "n " + beforeDash;
+                        if (newString.includes("alola"))
+                            newString = afterDash + "n " + beforeDash;
+                        else
+                            newString = afterDash + " " + beforeDash;
                     }
             }
         
@@ -230,6 +256,143 @@ const capitalize = (string) => {
 
     // return string
     return newString;
+};
+
+// get images from xyani folder from showdown
+const handleImgs = (img, shinyImg, name) => {
+    
+    // handle special cases, then do default
+    switch(name) {
+        case "aegislash-shield":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/aegislash.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/aegislash.gif";
+            break;
+        case "basculin-blue-striped":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/basculin-bluestriped.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/basculin-bluestriped.gif";
+            break;
+        case "basculin-red-striped":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/basculin.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/basculin.gif";
+            break;
+        case "charizard-mega-x":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/charizard-megax.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard-megax.gif";
+            break;
+        case "charizard-mega-y":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/charizard-megay.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard-megay.gif";
+            break;
+        case "darmanitan-standard":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/darmanitan.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/darmanitan.gif";
+            break;
+        case "deoxys-normal":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/deoxys.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/deoxys.gif";
+            break;
+        case "ho-oh":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/hooh.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/hooh.gif";
+            break;
+        case "jangmo-o":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/jangmoo.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/jangmoo.gif";
+            break;
+        case "hakamo-o":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/hakamoo.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/hakamoo.gif";
+            break;
+        case "kommo-o":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/kommoo.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/kommoo.gif";
+            break;
+        case "keldeo-ordinary":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/keldeo.gif";
+            break;
+        case "thundurus-incarnate":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/thundurus.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/thundurus.gif";
+            break;
+        case "tornadus-incarnate":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/tornadus.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/tornadus.gif";
+            break;
+        case "landorus-incarnate":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/landorus.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/landorus.gif";
+            break;
+        case "lycanroc-midday":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/lycanroc.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/lycanroc.gif";
+            break;
+        case "meloetta-aria":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/meloetta.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/meloetta.gif";
+            break;
+        case "meowstic-male":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/meowstic.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/meowstic.gif";
+            break;
+        case "meowstic-female":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/meowstic-f.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/meowstic-f.gif";
+            break;
+        case "mime-jr":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/mimejr.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/mimejr.gif";
+            break;
+        case "mewtwo-mega-x":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/mewtwo-megax.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/mewtwo-megax.gif";
+            break;
+        case "mewtwo-mega-y":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/mewtwo-megay.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/mewtwo-megay.gif";
+            break;
+        case "minior-red":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/minior.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/minior.gif";
+            break;
+        case "minior-red-meteor":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/minior-meteor.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/minior-meteor.gif";
+            break;
+        case "mr-mime":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/mrmime.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/mrmime.gif";
+            break;
+        case "nidoran-f":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/nidoranf.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/nidoranf.gif";
+            break;
+        case "nidoran-m":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/nidoranm.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/nidoranm.gif";
+            break;
+        case "oricorio-baile":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/oricorio.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/oricorio.gif";
+            break;
+        case "oricorio-pom-pom":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/oricorio-pompom.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/oricorio-pompom.gif";
+            break;
+        case "wishiwashi-solo":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/wishiwashi.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/wishiwashi.gif";
+            break;
+        case "wormadam-plant":
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/wormadam.gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/wormadam.gif";
+            break;
+            
+        default:
+            img.src = "http://play.pokemonshowdown.com/sprites/xyani/" + name + ".gif";
+            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/" + name + ".gif"; 
+            break;
+    }
 };
 
 const handleResponse = (xhr) => {   
@@ -279,20 +442,10 @@ const handleResponse = (xhr) => {
     console.log(obj);
     
     // get name with proper formatting
-    name.innerHTML = capitalize("" + obj.name);
+    name.innerHTML = handleName(obj.name);
     
-    // get sprites
-    if(obj.sprites.front_default) {
-        img.src = obj.sprites.front_default;
-    } else {
-        img.src = "https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png";
-    }
-    if(obj.sprites.front_shiny) {
-        shinyImg.hidden = false;
-        shinyImg.src = obj.sprites.front_shiny;
-    } else {
-        shinyImg.hidden = true;
-    }
+    // get sprites from showdown
+    handleImgs(img, shinyImg, obj.name);
     
     // get types
     type1.src = typeImages[obj.types[0].type.name];
@@ -401,7 +554,7 @@ const init = () => {
             input.value = input.placeholder;
         }
         
-        input.value = input.value.replace("'", "").replace(" ", "-").replace(":-", "-").toLowerCase();
+        input.value = input.value.replace("'", "").replace(" ", "-").replace(":-", "-").replace("%", "").replace(".", "").toLowerCase();
     
         // handle some special cases
         if(input.value === "mimikyu")
@@ -416,8 +569,6 @@ const init = () => {
             input.value = "pumpkaboo-average";
         if(input.value === "gourgeist")
             input.value = "gourgeist-average";
-        if(input.value === "zygarde-10%")
-            input.value = "zygarde-10";
     
         if (content.hidden === true) {
             content.hidden = false;
