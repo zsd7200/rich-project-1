@@ -361,6 +361,10 @@ const handleImgs = (img, shinyImg, name) => {
             img.src = "https://play.pokemonshowdown.com/sprites/xyani/mimejr.gif";
             shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/mimejr.gif";
             break;
+        case "mimikyu-disguised":
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/mimikyu.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/mimikyu.gif";
+            break;
         case "mewtwo-mega-x":
             img.src = "https://play.pokemonshowdown.com/sprites/xyani/mewtwo-megax.gif";
             shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/mewtwo-megax.gif";
