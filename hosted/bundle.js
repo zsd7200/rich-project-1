@@ -37,55 +37,13 @@ var handleName = function handleName(string) {
 
     var newString = "";
 
-    // handle special cases first, then go through the default way of parsing for capitalization
+    // handle special cases first, otherwise do default way of parsing for capitalization
     switch (string) {
-        case "jangmo-o":
-            newString = "Jangmo-o";
+        case "aegislash-blade":
+            newString = "Aegislash - Blade Forme";
             break;
-        case "hakamo-o":
-            newString = "Hakamo-o";
-            break;
-        case "kommo-o":
-            newString = "Kommo-o";
-            break;
-        case "type-null":
-            newString = "Type: Null";
-            break;
-        case "farfetchd":
-            newString = "Farfetch'd";
-            break;
-        case "nidoran-m":
-            newString = "Nidoran &#9794;";
-            break;
-        case "meowstic-male":
-            newString = "Meowstic &#9794;";
-            break;
-        case "nidoran-f":
-            newString = "Nidoran &#9792;";
-            break;
-        case "meowstic-female":
-            newString = "Meowstic &#9792;";
-            break;
-        case "porygon-z":
-            newString = "Porygon-Z";
-            break;
-        case "flabebe":
-            newString = "Flab&eacute;b&eacute;";
-            break;
-        case "deoxys-normal":
-            newString = "Deoxys";
-            break;
-        case "oricorio-baile":
-            newString = "Oricorio - Baile Style";
-            break;
-        case "oricorio-pom-pom":
-            newString = "Oricorio - Pom-Pom Style";
-            break;
-        case "oricorio-pau":
-            newString = "Oricorio - Pa'u Style";
-            break;
-        case "oricorio-sensu":
-            newString = "Oricorio - Sensu Style";
+        case "aegislash-shield":
+            newString = "Aegislash - Shield Forme";
             break;
         case "basculin-blue-striped":
             newString = "Basculin Blue-Striped";
@@ -93,11 +51,56 @@ var handleName = function handleName(string) {
         case "basculin-red-striped":
             newString = "Basculin Red-Striped";
             break;
+        case "charizard-mega-x":
+            newString = "Mega Charizard X";
+            break;
+        case "charizard-mega-y":
+            newString = "Mega Charizard Y";
+            break;
         case "darmanitan-standard":
             newString = "Darmanitan";
             break;
         case "darmanitan-zen":
             newString = "Darmanitan - Zen Mode";
+            break;
+        case "deoxys-normal":
+            newString = "Deoxys";
+            break;
+        case "farfetchd":
+            newString = "Farfetch'd";
+            break;
+        case "flabebe":
+            newString = "Flab&eacute;b&eacute;";
+            break;
+        case "giratina-altered":
+            newString = "Giratina - Altered Forme";
+            break;
+        case "giratina-origin":
+            newString = "Giratina - Origin Forme";
+            break;
+        case "gourgeist-average":
+            newString = "Gourgeist - Average Size";
+            break;
+        case "gourgeist-large":
+            newString = "Gourgeist - Large Size";
+            break;
+        case "gourgeist-small":
+            newString = "Gourgeist - Small Size";
+            break;
+        case "gourgeist-super":
+            newString = "Gourgeist - Super Size";
+            break;
+        case "greninja-ash":
+            newString = "Ash-Greninja";
+            break;
+        case "hakamo-o":
+            newString = "Hakamo-o";
+            break;
+        case "ho-oh":
+            newString = "Ho-Oh";
+            break;
+        case "jangmo-o":
+            newString = "Jangmo-o";
             break;
         case "keldeo-ordinary":
             newString = "Keldeo";
@@ -105,8 +108,23 @@ var handleName = function handleName(string) {
         case "keldeo-resolute":
             newString = "Keldeo - Resolute Form";
             break;
-        case "shaymin-sky":
-            newString = "Shaymin - Sky Form";
+        case "kommo-o":
+            newString = "Kommo-o";
+            break;
+        case "landorus-incarnate":
+            newString = "Landorus - Incarnate Forme";
+            break;
+        case "landorus-therian":
+            newString = "Landorus - Therian Forme";
+            break;
+        case "lycanroc-dusk":
+            newString = "Lycanroc - Dusk Form";
+            break;
+        case "lycanroc-midday":
+            newString = "Lycanroc - Midday Form";
+            break;
+        case "lycanroc-midnight":
+            newString = "Lycanroc - Midnight Form";
             break;
         case "meloetta-aria":
             newString = "Meloetta - Aria Forme";
@@ -114,14 +132,20 @@ var handleName = function handleName(string) {
         case "meloetta-pirouette":
             newString = "Meloetta - Pirouette Forme";
             break;
-        case "greninja-ash":
-            newString = "Ash-Greninja";
+        case "meowstic-female":
+            newString = "Meowstic &#9792;";
             break;
-        case "aegislash-blade":
-            newString = "Aegislash - Blade Forme";
+        case "meowstic-male":
+            newString = "Meowstic &#9794;";
             break;
-        case "aegislash-shield":
-            newString = "Aegislash - Shield Forme";
+        case "mewtwo-mega-x":
+            newString = "Mega Mewtwo X";
+            break;
+        case "mewtwo-mega-y":
+            newString = "Mega Mewtwo Y";
+            break;
+        case "mime-jr":
+            newString = "Mime Jr.";
             break;
         case "mimikyu-disguised":
             newString = "Mimikyu";
@@ -132,31 +156,53 @@ var handleName = function handleName(string) {
         case "minior-red-meteor":
             newString = "Minior - Meteor Form";
             break;
-        case "wishiwashi-solo":
-            newString = "Wishiwashi - Solo Form";
-        case "wishiwashi-school":
-            newString = "Wishiwashi - School Form";
+        case "mr-mime":
+            newString = "Mr. Mime";
             break;
-        case "lycanroc-midday":
-            newString = "Lycanroc - Midday Form";
+        case "necrozma-dawn":
+            newString = "Dawn Wings Necrozma";
             break;
-        case "lycanroc-dusk":
-            newString = "Lycanroc - Dusk Form";
+        case "necrozma-dusk":
+            newString = "Dusk Mane Necrozma";
             break;
-        case "lycanroc-midnight":
-            newString = "Lycanroc - Midnight Form";
+        case "nidoran-f":
+            newString = "Nidoran &#9792;";
             break;
-        case "zygarde":
-            newString = "Zygarde - 50% Forme";
+        case "nidoran-m":
+            newString = "Nidoran &#9794;";
             break;
-        case "zygarde-10":
-            newString = "Zygarde - 10% Forme";
+        case "oricorio-baile":
+            newString = "Oricorio - Baile Style";
             break;
-        case "zygarde-complete":
-            newString = "Zygarde - Complete Forme";
+        case "oricorio-pau":
+            newString = "Oricorio - Pa'u Style";
             break;
-        case "ho-oh":
-            newString = "Ho-Oh";
+        case "oricorio-pom-pom":
+            newString = "Oricorio - Pom-Pom Style";
+            break;
+        case "oricorio-sensu":
+            newString = "Oricorio - Sensu Style";
+            break;
+        case "porygon-z":
+            newString = "Porygon-Z";
+            break;
+        case "pumpkaboo-average":
+            newString = "Pumpkaboo - Average Size";
+            break;
+        case "pumpkaboo-large":
+            newString = "Pumpkaboo - Large Size";
+            break;
+        case "pumpkaboo-small":
+            newString = "Pumpkaboo - Small Size";
+            break;
+        case "pumpkaboo-super":
+            newString = "Pumpkaboo - Super Size";
+            break;
+        case "shaymin-land":
+            newString = "Shaymin - Land Forme";
+            break;
+        case "shaymin-sky":
+            newString = "Shaymin - Sky Forme";
             break;
         case "thundurus-incarnate":
             newString = "Thundurus - Incarnate Forme";
@@ -170,75 +216,23 @@ var handleName = function handleName(string) {
         case "tornadus-therian":
             newString = "Tornadus - Therian Forme";
             break;
-        case "landorus-incarnate":
-            newString = "Landorus - Incarnate Forme";
+        case "type-null":
+            newString = "Type: Null";
             break;
-        case "landorus-therian":
-            newString = "Landorus - Therian Forme";
+        case "wishiwashi-school":
+            newString = "Wishiwashi - School Form";
             break;
-        case "mime-jr":
-            newString = "Mime Jr.";
+        case "wishiwashi-solo":
+            newString = "Wishiwashi - Solo Form";
             break;
-        case "mr-mime":
-            newString = "Mr. Mime";
+        case "zygarde":
+            newString = "Zygarde - 50% Forme";
             break;
-        case "shaymin-land":
-            newString = "Shaymin - Land Forme";
+        case "zygarde-10":
+            newString = "Zygarde - 10% Forme";
             break;
-        case "shaymin-sky":
-            newString = "Shaymin - Sky Forme";
-            break;
-        case "giratina-altered":
-            newString = "Giratina - Altered Forme";
-            break;
-        case "giratina-origin":
-            newString = "Giratina - Origin Forme";
-            break;
-        case "necrozma-dawn":
-            newString = "Dawn Wings Necrozma";
-            break;
-        case "necrozma-dusk":
-            newString = "Dusk Mane Necrozma";
-            break;
-
-        // pumpkaboos and gourgeists get their own section for being such a pain
-        case "pumpkaboo-small":
-            newString = "Pumpkaboo - Small Size";
-            break;
-        case "pumpkaboo-average":
-            newString = "Pumpkaboo - Average Size";
-            break;
-        case "pumpkaboo-large":
-            newString = "Pumpkaboo - Large Size";
-            break;
-        case "pumpkaboo-super":
-            newString = "Pumpkaboo - Super Size";
-            break;
-        case "gourgeist-small":
-            newString = "Gourgeist - Small Size";
-            break;
-        case "gourgeist-average":
-            newString = "Gourgeist - Average Size";
-            break;
-        case "gourgeist-large":
-            newString = "Gourgeist - Large Size";
-            break;
-        case "gourgeist-super":
-            newString = "Gourgeist - Super Size";
-            break;
-
-        // special megas
-        case "charizard-mega-x":
-            newString = "Mega Charizard X";
-            break;
-        case "charizard-mega-y":
-            newString = "Mega Charizard Y";
-            break;
-        case "mewtwo-mega-x":
-            newString = "Mega Mewtwo X";
-            break;
-        case "mewtwo-mega-y":
-            newString = "Mega Mewtwo Y";
+        case "zygarde-complete":
+            newString = "Zygarde - Complete Forme";
             break;
 
         default:
@@ -256,7 +250,7 @@ var handleName = function handleName(string) {
                 }
             }
 
-            // loop through to see if there's a dash
+            // loop through to see if there's a dash for a non-mega/alola/primal
             for (var _i = 0; _i < newString.length; _i++) {
                 if (newString[_i] === "-") {
                     // if a dash is found, make two new strings, then add them together
@@ -267,8 +261,6 @@ var handleName = function handleName(string) {
             }break;
     }
 
-    return newString;
-
     // return string
     return newString;
 };
@@ -276,7 +268,7 @@ var handleName = function handleName(string) {
 // get images from xyani folder from showdown
 var handleImgs = function handleImgs(img, shinyImg, name) {
 
-    // handle special cases, then do default
+    // handle special cases, otherwise do default
     switch (name) {
         case "aegislash-shield":
             img.src = "https://play.pokemonshowdown.com/sprites/xyani/aegislash.gif";
@@ -533,6 +525,7 @@ var handleResponse = function handleResponse(xhr) {
             break;
     }
 
+    // parse xhr response as JSON
     var obj = JSON.parse(xhr.response);
     console.log(obj);
 
@@ -582,6 +575,7 @@ var handleResponse = function handleResponse(xhr) {
     });
 };
 
+// gets data from server/pokeapi
 var requestUpdate = function requestUpdate(e, input) {
     var url = "/pokemon?=" + input.value;
     console.log(url);
@@ -628,18 +622,26 @@ var sendPost = function sendPost(e, nameForm) {
     return false;
 };
 
+// runs as soon as site is loaded
 var init = function init() {
+    // get some dom elements
     var content = document.querySelector("#content");
     var input = document.querySelector("#input");
+    var loading = document.querySelector("#loading");
+    var innerLoading = document.querySelector("#innerLoading");
+    var getButton = document.querySelector("#getButton");
+    var ballButton = document.querySelector("#ballButton");
+    var closeButton = document.querySelector("#close");
+
+    // set random pokemon to be placeholder upon login
     input.placeholder = randomPoke();
 
+    // arrow function for requestUpdate, 
     var getData = function getData(e) {
         return requestUpdate(e, input);
     };
 
-    var loading = document.querySelector("#loading");
-    var innerLoading = document.querySelector("#innerLoading");
-
+    // fill in autocomplete with allPokemon array using jqueryUI
     $(input).autocomplete({
         source: function source(request, response) {
             // https://api.jqueryui.com/autocomplete/#entry-examples
@@ -652,17 +654,61 @@ var init = function init() {
         }
     });
 
-    var getButton = document.querySelector("#getButton");
+    // event listener for clicking the "get pokemon" button
     getButton.addEventListener('click', function () {
+
+        // if nothing is typed, use placeholder
         if (input.value === "") {
             input.value = input.placeholder;
         }
 
+        // replace special characters and make it all lowercase
         input.value = input.value.replace("'", "").replace(" ", "-").replace(":-", "-").replace("%", "").replace(".", "").toLowerCase();
 
         // handle some special cases
-        if (input.value === "mimikyu") input.value = "mimikyu-disguised";else if (input.value === "minior-meteor") input.value = "minior-red-meteor";else if (input.value === "minior-core") input.value = "minior-red";else if (input.value === "lycanroc") input.value = "lycanroc-midday";else if (input.value === "pumpkaboo") input.value = "pumpkaboo-average";else if (input.value === "gourgeist") input.value = "gourgeist-average";else if (input.value === "giratina") input.value = "giratina-altered";else if (input.value === "shaymin") input.value = "shaymin-land";else if (input.value === "meloetta") input.value = "meloetta-aria";else if (input.value === "aegislash") input.value = "aegislash-shield";else if (input.value === "deoxys") input.value = "deoxys-normal";else if (input.value === "necrozma-dusk mane") input.value = "necrozma-dusk";else if (input.value === "necrozma-dawn wings") input.value = "necrozma-dawn";
+        switch (input.value) {
+            case "aegislash":
+                input.value = "aegislash-shield";
+                break;
+            case "deoxys":
+                input.value = "deoxys-normal";
+                break;
+            case "giratina":
+                input.value = "giratina-altered";
+                break;
+            case "gourgeist":
+                input.value = "gourgeist-average";
+                break;
+            case "lycanroc":
+                input.value = "lycanroc-midday";
+                break;
+            case "meloetta":
+                input.value = "meloetta-aria";
+                break;
+            case "meloetta":
+                input.value = "mimikyu-disguised";
+                break;
+            case "minior-core":
+                input.value = "minior-red";
+                break;
+            case "minior-meteor":
+                input.value = "minior-red-meteor";
+                break;
+            case "necrozma-dawn wings":
+                input.value = "necrozma-dawn";
+                break;
+            case "necrozma-dusk mane":
+                input.value = "necrozma-dusk";
+                break;
+            case "pumpkaboo":
+                input.value = "pumpkaboo-average";
+                break;
+            case "shaymin":
+                input.value = "shaymin-land";
+                break;
+        }
 
+        // animate "content" section if it's not already visible (which it is not by default)
         if (content.hidden === true) {
             content.hidden = false;
             $(content).animate({
@@ -670,11 +716,14 @@ var init = function init() {
             }, 500);
         }
 
+        // animate loading spinner if it's not already visible (not by default)
         if (loading.hidden === true) {
             loading.hidden = false;
 
+            // spins the "loading" div
             rotateDiv(loading);
 
+            // fades it in
             $(loading).animate({
                 opacity: 1.0
             }, 100);
@@ -685,15 +734,16 @@ var init = function init() {
         }
     });
 
+    // second event listener for getting data
     getButton.addEventListener('click', getData);
 
-    var ballButton = document.querySelector("#ballButton");
+    // ball in center picks a random poke and calls getButton
     ballButton.addEventListener('click', function () {
         input.value = randomPoke();
         getButton.click();
     });
 
-    var closeButton = document.querySelector("#close");
+    // close button to fade out the content section
     closeButton.addEventListener('click', function () {
         $(content).animate({
             opacity: 0.0
