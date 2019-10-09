@@ -25,7 +25,7 @@ const getPokemon = (request, response, params) => {
   };
 
   // check for valid param
-  if (!params.name) {
+  if (!params['']) {
     responseJSON.message = 'Missing valid query parameter set to true';
     responseJSON.id = 'badRequest';
 
@@ -33,7 +33,7 @@ const getPokemon = (request, response, params) => {
   }
 
   // get pokemon data and set it equal to responseJSON
-  P.getPokemonByName(params.name, (res, err) => {
+  P.getPokemonByName(params[''], (res, err) => {
     if (!err) {
       responseJSON = res;
     } else {

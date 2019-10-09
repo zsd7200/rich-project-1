@@ -2,6 +2,7 @@ const fs = require('fs'); // pull in the file system module
 
 // read client and css files
 const index = fs.readFileSync(`${__dirname}/../hosted/client.html`);
+const pokemon = fs.readFileSync(`${__dirname}/../hosted/pokemon.html`);
 const css = fs.readFileSync(`${__dirname}/../hosted/style.css`);
 const bundle = fs.readFileSync(`${__dirname}/../hosted/bundle.js`);
 
@@ -25,8 +26,15 @@ const getBundle = (request, response) => {
   response.end();
 };
 
+const getPokemon = (request, response) => {
+  response.writeHead(200, { 'Content-Type': 'text/html' });
+  response.write(pokemon);
+  response.end();
+};
+
 module.exports = {
   getIndex,
   getCSS,
   getBundle,
+  getPokemon,
 };

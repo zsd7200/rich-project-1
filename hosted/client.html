@@ -15,16 +15,48 @@
 </head>
 <body>
     <section id="top">
-        <h2>Pokemon Thing</h2>
+        <h2>Pok&eacute;mon Thing</h2>
+        <button id="ballButton" title="Click me for a random Pok&eacute;mon!"></button>
+        
         <div class="ui-widget">
             <form action="/pokemon" method="get">
                 <input id="input" name="name">
-                <button type="submit" id="getButton">Get Pokemon</button>
+                <button type="submit" id="getButton">Get Pok&eacute;mon</button>
             </form>
         </div>
     </section>
-    <section id="content">
+    
+    <section id="content" hidden>
+        <button id="close">X</button>
+        <h4 id="pkmnName">Pok&eacute;mon Name</h4>
+        <img src="https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png" title="Pokemon Image" id="pkmnImg" /> <img src="https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png" title="Shiny Pokemon Image" id="pkmnShiny" hidden /> <br>
+        <img src="https://cdn.bulbagarden.net/upload/3/3c/UnknownIC_Big.png" title="Type 1" id="pkmnType1" /> <img src="https://cdn.bulbagarden.net/upload/3/3c/UnknownIC_Big.png" title="Type 2" id="pkmnType2" hidden />
+        <section id="stats">
+            <b><span>HP: </span></b>
+                <div id="hpBar"class="stat"></div>
+                <span id="hpNum">0</span>
+                <br>
+            <b><span>Attack: </span></b>
+                <div id="atkBar" class="stat"></div>
+                <span id="atkNum">0</span>
+                <br>
+            <b><span>Defense: </span></b>
+                <div id="defBar" class="stat"></div>
+                <span id="defNum">0</span>
+                <br>
+            <b><span>Sp. Attack: </span></b>
+                <div id="spAtkBar" class="stat"></div>
+                <span id="spAtkNum">0</span>
+                <br>
+            <b><span>Sp. Defense: </span></b>
+                <div id="spDefBar" class="stat"></div>
+                <span id="spDefNum">0</span>
+                <br>
+            <b><span>Speed: </span></b>
+                <div id="spdBar" class="stat"></div>
+                <span id="spdNum">0</span>
+                <br>
+        </section>
     </section>
-    <button id="ballButton" title="Click me for a random Pokemon!"></button>
 </body>
 </html>

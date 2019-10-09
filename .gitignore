@@ -1,3 +1,6 @@
+# Protoype zips
+*.zip
+
 # Logs
 logs
 *.log

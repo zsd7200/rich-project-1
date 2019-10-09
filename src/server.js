@@ -17,7 +17,7 @@ const urlStruct = {
     notFound: jsonHandler.notFound,
   },
   HEAD: {
-    '/pokemonH': jsonHandler.getPokemonMeta,
+    '/pokemon': jsonHandler.getPokemonMeta,
   },
   POST: {
     '/addFavorite': jsonHandler.addFavorite,
