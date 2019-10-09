@@ -253,6 +253,7 @@ const handleName = (string) => {
             }
         
             // loop through to see if there's a dash for a non-mega/alola/primal
+            // primarily handles tapus
             for(let i = 0; i < newString.length; i++)
                 if(newString[i] === "-") {
                     // if a dash is found, make two new strings, then add them together

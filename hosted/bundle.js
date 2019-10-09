@@ -251,6 +251,7 @@ var handleName = function handleName(string) {
             }
 
             // loop through to see if there's a dash for a non-mega/alola/primal
+            // primarily handles tapus
             for (var _i = 0; _i < newString.length; _i++) {
                 if (newString[_i] === "-") {
                     // if a dash is found, make two new strings, then add them together
