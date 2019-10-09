@@ -282,179 +282,199 @@ const handleImgs = (img, shinyImg, name) => {
     // handle special cases, then do default
     switch(name) {
         case "aegislash-shield":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/aegislash.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/aegislash.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/aegislash.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/aegislash.gif";
             break;
         case "basculin-blue-striped":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/basculin-bluestriped.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/basculin-bluestriped.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/basculin-bluestriped.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/basculin-bluestriped.gif";
             break;
         case "basculin-red-striped":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/basculin.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/basculin.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/basculin.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/basculin.gif";
             break;
         case "charizard-mega-x":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/charizard-megax.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard-megax.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/charizard-megax.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/charizard-megax.gif";
             break;
         case "charizard-mega-y":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/charizard-megay.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard-megay.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/charizard-megay.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/charizard-megay.gif";
             break;
         case "darmanitan-standard":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/darmanitan.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/darmanitan.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/darmanitan.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/darmanitan.gif";
             break;
         case "deoxys-normal":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/deoxys.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/deoxys.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/deoxys.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/deoxys.gif";
             break;
         case "giratina-altered":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/giratina.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/giratina.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/giratina.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/giratina.gif";
             break;
         case "gourgeist-average":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/gourgeist.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/gourgeist.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/gourgeist.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/gourgeist.gif";
             break;
         case "hakamo-o":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/hakamoo.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/hakamoo.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/hakamoo.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/hakamoo.gif";
             break;
         case "ho-oh":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/hooh.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/hooh.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/hooh.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/hooh.gif";
             break;
         case "jangmo-o":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/jangmoo.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/jangmoo.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/jangmoo.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/jangmoo.gif";
             break;
         case "keldeo-ordinary":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/keldeo.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/keldeo.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/keldeo.gif";
             break;
         case "kommo-o":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/kommoo.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/kommoo.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/kommoo.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/kommoo.gif";
             break;
         case "landorus-incarnate":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/landorus.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/landorus.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/landorus.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/landorus.gif";
             break;
         case "lycanroc-midday":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/lycanroc.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/lycanroc.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/lycanroc.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/lycanroc.gif";
             break;
         case "meloetta-aria":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/meloetta.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/meloetta.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/meloetta.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/meloetta.gif";
             break;
         case "meowstic-male":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/meowstic.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/meowstic.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/meowstic.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/meowstic.gif";
             break;
         case "meowstic-female":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/meowstic-f.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/meowstic-f.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/meowstic-f.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/meowstic-f.gif";
             break;
         case "mime-jr":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/mimejr.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/mimejr.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/mimejr.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/mimejr.gif";
             break;
         case "mewtwo-mega-x":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/mewtwo-megax.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/mewtwo-megax.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/mewtwo-megax.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/mewtwo-megax.gif";
             break;
         case "mewtwo-mega-y":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/mewtwo-megay.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/mewtwo-megay.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/mewtwo-megay.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/mewtwo-megay.gif";
             break;
         case "minior-red":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/minior.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/minior.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/minior.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/minior.gif";
             break;
         case "minior-red-meteor":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/minior-meteor.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/minior-meteor.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/minior-meteor.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/minior-meteor.gif";
             break;
         case "mr-mime":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/mrmime.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/mrmime.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/mrmime.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/mrmime.gif";
             break;
         case "necrozma-dawn":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/necrozma-dawnwings.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/necrozma-dawnwings.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/necrozma-dawnwings.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/necrozma-dawnwings.gif";
             break;
         case "necrozma-dusk":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/necrozma-duskmane.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/necrozma-duskmane.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/necrozma-duskmane.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/necrozma-duskmane.gif";
             break;
         case "nidoran-f":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/nidoranf.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/nidoranf.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/nidoranf.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/nidoranf.gif";
             break;
         case "nidoran-m":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/nidoranm.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/nidoranm.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/nidoranm.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/nidoranm.gif";
             break;
         case "oricorio-baile":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/oricorio.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/oricorio.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/oricorio.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/oricorio.gif";
             break;
         case "oricorio-pom-pom":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/oricorio-pompom.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/oricorio-pompom.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/oricorio-pompom.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/oricorio-pompom.gif";
             break;
         case "pumpkaboo-average":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/pumpkaboo.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/pumpkaboo.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/pumpkaboo.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/pumpkaboo.gif";
             break;
         case "shaymin-land":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/shaymin.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/shaymin.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/shaymin.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/shaymin.gif";
             break;
         case "tapu-bulu":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/tapubulu.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/tapubulu.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/tapubulu.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/tapubulu.gif";
             break;
         case "tapu-fini":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/tapufini.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/tapufini.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/tapufini.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/tapufini.gif";
             break;
         case "tapu-koko":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/tapukoko.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/tapukoko.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/tapukoko.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/tapukoko.gif";
             break;
         case "tapu-lele":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/tapulele.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/tapulele.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/tapulele.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/tapulele.gif";
             break;
         case "thundurus-incarnate":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/thundurus.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/thundurus.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/thundurus.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/thundurus.gif";
             break;
         case "tornadus-incarnate":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/tornadus.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/tornadus.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/tornadus.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/tornadus.gif";
             break;
         case "type-null":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/typenull.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/typenull.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/typenull.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/typenull.gif";
             break;
         case "wishiwashi-solo":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/wishiwashi.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/wishiwashi.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/wishiwashi.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/wishiwashi.gif";
             break;
         case "wormadam-plant":
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/wormadam.gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/wormadam.gif";
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/wormadam.gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/wormadam.gif";
             break;
             
         default:
-            img.src = "http://play.pokemonshowdown.com/sprites/xyani/" + name + ".gif";
-            shinyImg.src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/" + name + ".gif"; 
+            img.src = "https://play.pokemonshowdown.com/sprites/xyani/" + name + ".gif";
+            shinyImg.src = "https://play.pokemonshowdown.com/sprites/xyani-shiny/" + name + ".gif"; 
             break;
     }
+};
+
+// modified from: 
+// https://www.w3schools.com/css/css3_2dtransforms.asp
+const rotateDiv = (loading) => {
+    let degrees = 0;
+    let rotationInterval;
+    
+    clearInterval(rotationInterval);
+    rotationInterval = setInterval(() => {
+        degrees += 1;
+        loading.style.transform="rotate(" + degrees + "deg)";
+        loading.style.webkitTransform="rotate(" + degrees + "deg)";
+        loading.style.OTransform="rotate(" + degrees + "deg)";
+        loading.style.MozTransform="rotate(" + degrees + "deg)";
+        if(degrees === 180 || degrees === 360)
+            clearInterval(rotationInterval);
+        if(degrees === 360)
+            degrees = 0;
+    }, 10);
 };
 
 const handleResponse = (xhr) => {   
@@ -478,6 +498,20 @@ const handleResponse = (xhr) => {
         'spd_bar' : document.querySelector('#spdBar'),
         'spd_num' : document.querySelector('#spdNum'),
     };
+    
+    // hide loading pokeball
+    const loading = document.querySelector("#loading");
+    const innerLoading = document.querySelector("#innerLoading");
+    
+    $(loading).animate({
+        opacity: 0.0
+    }, 200);
+            
+    $(innerLoading).animate({
+        opacity: 0.0
+    }, 200, () => {
+        loading.hidden = true;
+    });
 
     switch (xhr.status) {
         case 200:
@@ -597,6 +631,9 @@ const init = () => {
     input.placeholder = randomPoke();
     
     const getData = (e) => requestUpdate(e, input);
+    
+    const loading = document.querySelector("#loading");
+    const innerLoading = document.querySelector("#innerLoading");
 
     $(input).autocomplete({
         source: function(request, response) {
@@ -651,6 +688,20 @@ const init = () => {
             $(content).animate({
                 opacity: 1.0
             }, 500);
+        }
+        
+        if (loading.hidden === true) {
+            loading.hidden = false;
+            
+            rotateDiv(loading);
+            
+            $(loading).animate({
+                opacity: 1.0,
+            }, 100);
+            
+            $(innerLoading).animate({
+                opacity: 1.0
+            }, 100);
         }
     });
     
