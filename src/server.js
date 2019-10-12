@@ -15,7 +15,7 @@ const urlStruct = {
     '/bundle.js': htmlHandler.getBundle,
     '/favicon.png' : htmlHandler.getFavicon,
     '/pokemon': jsonHandler.getPokemon,
-    notFound: jsonHandler.notFound,
+    notFound: htmlHandler.notFound,
   },
   HEAD: {
     '/pokemon': jsonHandler.getPokemonMeta,

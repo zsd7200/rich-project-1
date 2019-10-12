@@ -38,6 +38,19 @@ tr:nth-child(odd) { background-color: white; }
     margin-left: -70px;
     z-index: 0;
 }
+#ballDiv {
+    border-radius: 100%;
+    border: 20px solid black;
+    background-color: #DFE0ED;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -70px;
+    margin-left: -70px;
+    z-index: 0;
+}
 #close {
     float: right;
     position: relative;
@@ -56,6 +69,18 @@ tr:nth-child(odd) { background-color: white; }
     height: 82%;
     margin: auto;
     margin-top: 15px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 3px solid black;
+    border-radius: 25px;
+    position: relative;
+    z-index: 1;
+}
+#content404 {
+    overflow: auto;
+    width: 45%;
+    height: 25%;
+    margin: auto;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.85);
     border: 3px solid black;
