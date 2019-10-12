@@ -577,29 +577,27 @@ var handleResponse = function handleResponse(xhr) {
     var shinyImg = document.querySelector('#pkmnShiny');
     var type1 = document.querySelector('#pkmnType1');
     var type2 = document.querySelector('#pkmnType2');
-    var stats = {
-        'hp_bar': document.querySelector('#hpBar'),
-        'hp_num': document.querySelector('#hpNum'),
-        'atk_bar': document.querySelector('#atkBar'),
-        'atk_num': document.querySelector('#atkNum'),
-        'def_bar': document.querySelector('#defBar'),
-        'def_num': document.querySelector('#defNum'),
-        'spatk_bar': document.querySelector('#spAtkBar'),
-        'spatk_num': document.querySelector('#spAtkNum'),
-        'spdef_bar': document.querySelector('#spDefBar'),
-        'spdef_num': document.querySelector('#spDefNum'),
-        'spd_bar': document.querySelector('#spdBar'),
-        'spd_num': document.querySelector('#spdNum')
-    };
+    var statBars = [document.querySelector('#spdBar'), document.querySelector('#spDefBar'), document.querySelector('#spAtkBar'), document.querySelector('#defBar'), document.querySelector('#atkBar'), document.querySelector('#hpBar')];
+    var statNums = [document.querySelector('#spdNum'), document.querySelector('#spDefNum'), document.querySelector('#spAtkNum'), document.querySelector('#defNum'), document.querySelector('#atkNum'), document.querySelector('#hpNum')];
     var moveList = document.querySelector("#movelist");
     var abilties = document.querySelector("#abilities");
     var hiddenAbility = document.querySelector("#hiddenAbility");
     var hiddenTitle = document.querySelector("#hiddenTitle");
+    var arrows = [document.querySelector("#moveArrow"), document.querySelector("#learnedArrow"), document.querySelector("#methodArrow")];
+    var errData = document.querySelector("#errData");
+    var errMessage = document.querySelector("#errMessage");
+    var errID = document.querySelector("#errID");
+
+    // url for missingno sprite
+    var missingnoURL = "https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png";
 
     // wipe movesList from previous request
     $('#movelist tr').slice(1).remove();
 
-    // reset abilities
+    // set arrows to default (right arrow)
+    for (var i = 0; i < arrows.length; i++) {
+        arrows[i].innerHTML = "&#8594;";
+    } // reset abilities
     abilities.innerHTML = "???";
     hiddenAbility.innerHTML = "???";
 
@@ -615,6 +613,10 @@ var handleResponse = function handleResponse(xhr) {
     }, 200, function () {
         loading.hidden = true;
     });
+
+    // parse xhr response as JSON
+    var obj = JSON.parse(xhr.response);
+    console.log(obj);
 
     switch (xhr.status) {
         case 200:
@@ -637,9 +639,41 @@ var handleResponse = function handleResponse(xhr) {
             break;
     }
 
-    // parse xhr response as JSON
-    var obj = JSON.parse(xhr.response);
-    console.log(obj);
+    if (xhr.status === 200 || xhr.status === 201 || xhr.status === 204) {
+        // hide error data and reset values
+        errData.hidden = true;
+        errMessage.innerHTML = "???";
+        errID.innerHTML = "???";
+        $("#moves").css("height", "37.5%");
+    } else if (xhr.status === 400 || xhr.status === 404) {
+        // show error data and show error message/id
+        errData.hidden = false;
+        errMessage.innerHTML = obj.message;
+        errID.innerHTML = obj.id;
+
+        // reset pokemon data to unknown
+        // images
+        img.src = missingnoURL;
+        shinyImg.src = missingnoURL;
+
+        // types
+        type1.src = typeImages["???"];
+        type1.title = "Type 1: ???";
+        type2.hidden = true;
+
+        // stats (text)
+        for (var _i = 0; _i < statNums.length; _i++) {
+            statNums[_i].innerHTML = "0";
+        } // stats (bars)
+        for (var _i2 = 0; _i2 < statBars.length; _i2++) {
+            $(statBars[_i2]).animate({ width: '5px' });
+        } // abilities
+        abilities.innerHTML = "???";
+        hiddenAbility.hidden = true;
+
+        // set height to be shorter so a scrollbar won't appear
+        $("#moves").css("height", "15%");
+    }
 
     // check if obj.name exists (basically, if data is sent back)
     if (obj.name) {
@@ -661,52 +695,30 @@ var handleResponse = function handleResponse(xhr) {
         }
 
         // get stats (text)
-        stats["spd_num"].innerHTML = obj.stats[0].base_stat;
-        stats["spdef_num"].innerHTML = obj.stats[1].base_stat;
-        stats["spatk_num"].innerHTML = obj.stats[2].base_stat;
-        stats["def_num"].innerHTML = obj.stats[3].base_stat;
-        stats["atk_num"].innerHTML = obj.stats[4].base_stat;
-        stats["hp_num"].innerHTML = obj.stats[5].base_stat;
-
-        // get stats (bars)
-        $(stats["spd_bar"]).animate({
-            width: '' + obj.stats[0].base_stat + 'px'
-        });
-        $(stats["spdef_bar"]).animate({
-            width: '' + obj.stats[1].base_stat + 'px'
-        });
-        $(stats["spatk_bar"]).animate({
-            width: '' + obj.stats[2].base_stat + 'px'
-        });
-        $(stats["def_bar"]).animate({
-            width: '' + obj.stats[3].base_stat + 'px'
-        });
-        $(stats["atk_bar"]).animate({
-            width: '' + obj.stats[4].base_stat + 'px'
-        });
-        $(stats["hp_bar"]).animate({
-            width: '' + obj.stats[5].base_stat + 'px'
-        });
-
-        // create a tr (row) for every move
-        for (var i = 0; i < obj.moves.length; i++) {
+        for (var _i3 = 0; _i3 < statNums.length; _i3++) {
+            statNums[_i3].innerHTML = obj.stats[_i3].base_stat;
+        } // get stats (bars)
+        for (var _i4 = 0; _i4 < statBars.length; _i4++) {
+            $(statBars[_i4]).animate({ width: '' + obj.stats[_i4].base_stat + 'px' });
+        } // create a tr (row) for every move
+        for (var _i5 = 0; _i5 < obj.moves.length; _i5++) {
             var tr = document.createElement('tr');
             var moveName = document.createElement('td');
             var moveLevel = document.createElement('td');
             var moveMethod = document.createElement('td');
 
             // set move name
-            moveName.innerHTML = capitalizeString(obj.moves[i].move.name);
+            moveName.innerHTML = capitalizeString(obj.moves[_i5].move.name);
 
             // loop through movelist looking for usum moveset
-            for (var j = 0; j < obj.moves[i].version_group_details.length; j++) {
-                if (obj.moves[i].version_group_details[j].version_group.name === "ultra-sun-ultra-moon") {
+            for (var j = 0; j < obj.moves[_i5].version_group_details.length; j++) {
+                if (obj.moves[_i5].version_group_details[j].version_group.name === "ultra-sun-ultra-moon") {
 
                     // set level
-                    moveLevel.innerHTML = obj.moves[i].version_group_details[j].level_learned_at;
+                    moveLevel.innerHTML = obj.moves[_i5].version_group_details[j].level_learned_at;
 
                     // switch statement to handle method of learning
-                    switch (obj.moves[i].version_group_details[j].move_learn_method.name) {
+                    switch (obj.moves[_i5].version_group_details[j].move_learn_method.name) {
                         case "level-up":
                             moveMethod.innerHTML = "Level Up";
                             break;
@@ -737,18 +749,18 @@ var handleResponse = function handleResponse(xhr) {
         sortTable(1, moveList);
 
         // loop through abilities and display them
-        for (var _i = 0; _i < obj.abilities.length; _i++) {
+        for (var _i6 = 0; _i6 < obj.abilities.length; _i6++) {
             // if ability is hidden, unhide hidden ability section and display ability name
-            if (obj.abilities[_i].is_hidden === true) {
+            if (obj.abilities[_i6].is_hidden === true) {
                 hiddenTitle.hidden = false;
-                hiddenAbility.innerHTML = capitalizeString(obj.abilities[_i].ability.name);
+                hiddenAbility.innerHTML = capitalizeString(obj.abilities[_i6].ability.name);
             } else {
                 // if there is no ability, replace ??? with ability,
                 // but if there is already an ability, append it to the abilities string
                 if (abilities.innerHTML === "???") {
-                    abilities.innerHTML = capitalizeString(obj.abilities[_i].ability.name);
+                    abilities.innerHTML = capitalizeString(obj.abilities[_i6].ability.name);
                 } else {
-                    abilities.innerHTML += " or " + capitalizeString(obj.abilities[_i].ability.name);
+                    abilities.innerHTML += " or " + capitalizeString(obj.abilities[_i6].ability.name);
                 }
             }
         }

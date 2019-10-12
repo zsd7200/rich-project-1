@@ -1,6 +1,5 @@
 const users = {};
 const Pokedex = require('pokedex-promise-v2');
-
 const P = new Pokedex();
 
 // function to respond with JSON
@@ -20,13 +19,13 @@ const respondJSONMeta = (request, response, status) => {
 const getPokemon = (request, response, params) => {
   // default is 404 since it would have returned nothing even if it had a valid param
   let responseJSON = {
-    message: 'This request has the required parameters, but no data was found',
-    id: 'noneFound',
+    message: "No data was found.\nDouble-check that the Pok&eacute;mon's name is spelled correctly, then try again.",
+    id: 'badRequest',
   };
 
   // check for valid param
   if (!params['']) {
-    responseJSON.message = 'Missing valid query parameter set to true';
+    responseJSON.message = 'Missing valid query parameter';
     responseJSON.id = 'badRequest';
 
     return respondJSON(request, response, 400, responseJSON);
@@ -47,7 +46,7 @@ const getPokemon = (request, response, params) => {
     if (!responseJSON.message) {
       return respondJSON(request, response, 200, responseJSON);
     }
-    return respondJSON(request, response, 404, responseJSON);
+    return respondJSON(request, response, 400, responseJSON);
   }, 1250);
 
   return true;
