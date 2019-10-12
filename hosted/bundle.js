@@ -931,7 +931,6 @@ var init = function init() {
             $(loading).animate({
                 opacity: 1.0
             }, 100);
-
             $(innerLoading).animate({
                 opacity: 1.0
             }, 100);

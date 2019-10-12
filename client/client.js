@@ -265,7 +265,7 @@ const handleName = (string) => {
 
 const capitalizeString = (string) => {
     let newString = string.charAt(0).toUpperCase() + string.slice(1);
-    
+
     // loop through to see if there's a dash in the name
     // primarily handles tapus, abilities, and moves
     for(let i = 0; i < newString.length; i++)
@@ -960,7 +960,6 @@ const init = () => {
             $(loading).animate({
                 opacity: 1.0,
             }, 100);
-            
             $(innerLoading).animate({
                 opacity: 1.0
             }, 100);
