@@ -29,9 +29,13 @@
     
     <section id="content" hidden>
         <button id="close">X</button>
-        <h4 id="pkmnName">Pok&eacute;mon Name</h4>
-        <img src="https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png" title="Pok&eacute;mon Image" id="pkmnImg" /> <img src="https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png" title="Shiny Pok&eacute;mon Image" id="pkmnShiny" /> <br>
-        <img src="https://cdn.bulbagarden.net/upload/3/3c/UnknownIC_Big.png" title="Type 1" id="pkmnType1" /> <img src="https://cdn.bulbagarden.net/upload/3/3c/UnknownIC_Big.png" title="Type 2" id="pkmnType2" hidden />
+        <h1 id="pkmnName">Pok&eacute;mon Name</h1>
+        <section id="pictures">
+        <img src="https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png" title="Pok&eacute;mon Image" id="pkmnImg" /> <img src="https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png" title="Shiny Pok&eacute;mon Image" id="pkmnShiny" /> <br><br>
+        <img src="https://cdn.bulbagarden.net/upload/3/3c/UnknownIC_Big.png" title="Type 1" id="pkmnType1" /> <img src="https://cdn.bulbagarden.net/upload/3/3c/UnknownIC_Big.png" title="Type 2" id="pkmnType2" hidden /> <br><br>
+        <b><span>Abilities: </b></span><span id="abilities">???</span><br>
+        <section id="hiddenTitle" hidden><b><span>Hidden Ability: </b></span><span id="hiddenAbility">???</span></section>
+        </section>
         <section id="stats">
             <b><span>HP:</span></b>
                 <span id="hpNum">0</span>
@@ -51,6 +55,15 @@
             <b><span>Speed:</span></b>
                 <span id="spdNum">0</span>
                 <div id="spdBar" class="stat"></div>
+        </section>
+        <section id="moves">
+            <table id="movelist">
+                <tr>
+                    <th id="moveName">Move<span class="arrow" id="moveArrow">&#8594;</span></th>
+                    <th id="moveLevel">Level Learned<span class="arrow" id="learnedArrow">&#8594;</span></th>
+                    <th id="moveMethod">Method<span class="arrow" id="methodArrow">&#8594;</span></th>
+                </tr>
+            </table>
         </section>
     </section>
 </body>

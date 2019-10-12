@@ -252,20 +252,30 @@ const handleName = (string) => {
                     }
             }
         
-            // loop through to see if there's a dash for a non-mega/alola/primal
-            // primarily handles tapus
-            for(let i = 0; i < newString.length; i++)
-                if(newString[i] === "-") {
-                    // if a dash is found, make two new strings, then add them together
-                    const beforeDash = newString.slice(0, i);
-                    const afterDash = newString.charAt(i + 1).toUpperCase() + newString.slice(i + 2);
-                    newString = beforeDash + " " + afterDash;
-                }
-                
+            // capitalizeString just removes dashes and capitalizes if there's more than one word
+            // this is helpful for the tapus
+            newString = capitalizeString(newString);
+            
             break;
     }
 
     // return string
+    return newString;
+};
+
+const capitalizeString = (string) => {
+    let newString = string.charAt(0).toUpperCase() + string.slice(1);
+    
+    // loop through to see if there's a dash in the name
+    // primarily handles tapus, abilities, and moves
+    for(let i = 0; i < newString.length; i++)
+        if(newString[i] === "-") {
+            // if a dash is found, make two new strings, then add them together
+            const beforeDash = newString.slice(0, i);
+            const afterDash = newString.charAt(i + 1).toUpperCase() + newString.slice(i + 2);
+            newString = beforeDash + " " + afterDash;
+        }
+    
     return newString;
 };
 
@@ -474,6 +484,101 @@ const rotateDiv = (loading) => {
     }, 10);
 };
 
+// modified from:
+// https://www.w3schools.com/howto/howto_js_sort_table.asp
+const sortTable = (column, table) => {
+    // create needed variables
+    const rows = table.rows;
+    let direction = "ascending"; 
+    let shouldSwitch = false;       // starts as false, then changes to true if a condition is met and swaps elements accordingly
+    let switching = true;
+    let switchcount = 0;
+    let i = 0;                      // declared outside of for loop to be used outside the for loop
+
+    // create some variables to show ascending/descending sort
+    // grab spans from DOM
+    const arrows = [
+        document.querySelector("#moveArrow"),
+        document.querySelector("#learnedArrow"),
+        document.querySelector("#methodArrow")
+    ];
+    
+    // html codes for arrows
+    const dArrow = "&#8595;";
+    const uArrow = "&#8593;";
+    const rArrow = "&#8594;";
+
+    // continue loop while switching is true
+    while (switching) {
+        switching = false;
+        
+        // loop through table rows (except for first, since that's the headers)
+        for (i = 1; i < (rows.length - 1); i++) {
+            // shouldSwitch turns true when a condition below is true
+            shouldSwitch = false;
+          
+            // get the current and next elements to compare
+            const currElement = rows[i].getElementsByTagName("TD")[column];
+            const nextElement = rows[i + 1].getElementsByTagName("TD")[column];
+          
+            // check to make sure if the column checking is the level column
+            // this is needed to compare numbers instead of strings
+            if(column === 1) {
+                if(direction == "ascending") {
+                    if (parseInt(currElement.innerHTML) > parseInt(nextElement.innerHTML)) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if(direction == "descending") {
+                    if (parseInt(currElement.innerHTML) < parseInt(nextElement.innerHTML)) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            } else {
+                // otherwise compare strings, which checks the first letter and checks which one is first in the alphabet
+                if (direction == "ascending") {
+                    if (currElement.innerHTML.toLowerCase() > nextElement.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (direction == "descending") {
+                    if (currElement.innerHTML.toLowerCase() < nextElement.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+        }
+        if (shouldSwitch) {
+            // perform the switch and run the loop again
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            // increase every time a switch is done
+            switchcount++; 
+        } else {
+            // if there is no switching, change direction and run the loop again
+            if (switchcount == 0 && direction == "ascending") {
+                direction = "descending";
+                switching = true;
+            }
+        }
+    }
+    
+    // change arrows based on sort
+    for(i = 0; i < arrows.length; i++) {
+        if(i != column) {
+            arrows[i].innerHTML = rArrow;
+        } else if(i === column) {
+            if(direction === "ascending") {
+                arrows[column].innerHTML = dArrow;
+            } else if (direction === "descending") {
+            arrows[column].innerHTML = uArrow;
+            }
+        }
+    }
+};
+
 const handleResponse = (xhr) => {   
     // grab dom elements
     const name = document.querySelector('#pkmnName');
@@ -495,6 +600,17 @@ const handleResponse = (xhr) => {
         'spd_bar' : document.querySelector('#spdBar'),
         'spd_num' : document.querySelector('#spdNum'),
     };
+    const moveList = document.querySelector("#movelist");
+    const abilties = document.querySelector("#abilities");
+    const hiddenAbility = document.querySelector("#hiddenAbility");
+    const hiddenTitle = document.querySelector("#hiddenTitle");
+    
+    // wipe movesList from previous request
+    $('#movelist tr').slice(1).remove();
+        
+    // reset abilities
+    abilities.innerHTML = "???";
+    hiddenAbility.innerHTML = "???";
     
     // hide loading pokeball
     const loading = document.querySelector("#loading");
@@ -503,7 +619,6 @@ const handleResponse = (xhr) => {
     $(loading).animate({
         opacity: 0.0
     }, 200);
-            
     $(innerLoading).animate({
         opacity: 0.0
     }, 200, () => {
@@ -535,50 +650,127 @@ const handleResponse = (xhr) => {
     const obj = JSON.parse(xhr.response);
     console.log(obj);
     
-    // get name with proper formatting
-    name.innerHTML = handleName(obj.name);
-    
-    // get sprites from showdown
-    handleImgs(img, shinyImg, obj.name);
-    
-    // get types
-    type1.src = typeImages[obj.types[0].type.name];
-    type1.title = "Type 1: " + obj.types[0].type.name;
-    if(obj.types.length == 2) {
-        type2.hidden = false;
-        type2.src = typeImages[obj.types[1].type.name];
-        type2.title = "Type 2: " + obj.types[1].type.name;
-    } else {
-        type2.hidden = true;
+    // check if obj.name exists (basically, if data is sent back)
+    if(obj.name) {
+        // get name with proper formatting
+        name.innerHTML = handleName(obj.name);
+        
+        // get sprites from showdown
+        handleImgs(img, shinyImg, obj.name);
+        
+        // get types
+        type1.src = typeImages[obj.types[0].type.name];
+        type1.title = "Type 1: " + capitalizeString(obj.types[0].type.name);
+        if(obj.types.length == 2) {
+            type2.hidden = false;
+            type2.src = typeImages[obj.types[1].type.name];
+            type2.title = "Type 2: " + capitalizeString(obj.types[1].type.name);
+        } else {
+            type2.hidden = true;
+        }
+        
+        // get stats (text)
+        stats["spd_num"].innerHTML = obj.stats[0].base_stat;
+        stats["spdef_num"].innerHTML = obj.stats[1].base_stat;
+        stats["spatk_num"].innerHTML = obj.stats[2].base_stat;
+        stats["def_num"].innerHTML = obj.stats[3].base_stat;
+        stats["atk_num"].innerHTML = obj.stats[4].base_stat;
+        stats["hp_num"].innerHTML = obj.stats[5].base_stat;
+        
+        // get stats (bars)
+        $(stats["spd_bar"]).animate({
+            width: '' + obj.stats[0].base_stat + 'px'
+        });
+        $(stats["spdef_bar"]).animate({
+            width: '' + obj.stats[1].base_stat + 'px'
+        });
+        $(stats["spatk_bar"]).animate({
+            width: '' + obj.stats[2].base_stat + 'px'
+        });
+        $(stats["def_bar"]).animate({
+            width: '' + obj.stats[3].base_stat + 'px'
+        });
+        $(stats["atk_bar"]).animate({
+            width: '' + obj.stats[4].base_stat + 'px'
+        });
+        $(stats["hp_bar"]).animate({
+            width: '' + obj.stats[5].base_stat + 'px'
+        });
+        
+        // create a tr (row) for every move
+        for(let i = 0; i < obj.moves.length; i++) {
+            const tr = document.createElement('tr');
+            const moveName = document.createElement('td');
+            const moveLevel = document.createElement('td');
+            const moveMethod = document.createElement('td');
+            
+            // set move name
+            moveName.innerHTML = capitalizeString(obj.moves[i].move.name);
+            
+            // loop through movelist looking for usum moveset
+            for(let j = 0; j < obj.moves[i].version_group_details.length; j++) {
+                if(obj.moves[i].version_group_details[j].version_group.name === "ultra-sun-ultra-moon") {
+                    
+                    // set level
+                    moveLevel.innerHTML = obj.moves[i].version_group_details[j].level_learned_at;
+                    
+                    // switch statement to handle method of learning
+                    switch(obj.moves[i].version_group_details[j].move_learn_method.name) {
+                        case "level-up":
+                            moveMethod.innerHTML = "Level Up";
+                            break;
+                        case "machine":
+                            moveMethod.innerHTML = "TM/HM";
+                            break;
+                        case "egg":
+                            moveMethod.innerHTML = "Egg";
+                            break;
+                        case "tutor":
+                            moveMethod.innerHTML = "Tutor";
+                            break;
+                        default:
+                            moveMethod.innerHTML = "???";
+                            break;
+                    }
+                    
+                    // append all data to row, then append row to table
+                    tr.appendChild(moveName);
+                    tr.appendChild(moveLevel);
+                    tr.appendChild(moveMethod);
+                    moveList.appendChild(tr);
+                }
+            }
+        }
+        
+        // sort table by level
+        sortTable(1, moveList);
+        
+        // loop through abilities and display them
+        for(let i = 0; i < obj.abilities.length; i++) {
+            // if ability is hidden, unhide hidden ability section and display ability name
+            if(obj.abilities[i].is_hidden === true) {
+                hiddenTitle.hidden = false;
+                hiddenAbility.innerHTML = capitalizeString(obj.abilities[i].ability.name);
+            } else {
+                // if there is no ability, replace ??? with ability,
+                // but if there is already an ability, append it to the abilities string
+                if(abilities.innerHTML === "???") {
+                    abilities.innerHTML = capitalizeString(obj.abilities[i].ability.name);
+                } else {
+                    abilities.innerHTML += " or " + capitalizeString(obj.abilities[i].ability.name);
+                }
+            }
+        }
+        
+        // remove hidden ability section if there is no hidden ability
+        // used primarily for megas
+        if(hiddenAbility.innerHTML === "???") {
+            hiddenTitle.hidden = true;
+        }
+        
+        
     }
-    
-    // get stats (text)
-    stats["spd_num"].innerHTML = obj.stats[0].base_stat;
-    stats["spdef_num"].innerHTML = obj.stats[1].base_stat;
-    stats["spatk_num"].innerHTML = obj.stats[2].base_stat;
-    stats["def_num"].innerHTML = obj.stats[3].base_stat;
-    stats["atk_num"].innerHTML = obj.stats[4].base_stat;
-    stats["hp_num"].innerHTML = obj.stats[5].base_stat;
-    
-    // get stats (bars)
-    $(stats["spd_bar"]).animate({
-        width: '' + obj.stats[0].base_stat + 'px'
-    });
-    $(stats["spdef_bar"]).animate({
-        width: '' + obj.stats[1].base_stat + 'px'
-    });
-    $(stats["spatk_bar"]).animate({
-        width: '' + obj.stats[2].base_stat + 'px'
-    });
-    $(stats["def_bar"]).animate({
-        width: '' + obj.stats[3].base_stat + 'px'
-    });
-    $(stats["atk_bar"]).animate({
-        width: '' + obj.stats[4].base_stat + 'px'
-    });
-    $(stats["hp_bar"]).animate({
-        width: '' + obj.stats[5].base_stat + 'px'
-    });
+
 };
 
 // gets data from server/pokeapi
@@ -634,6 +826,12 @@ const init = () => {
     const getButton = document.querySelector("#getButton");    
     const ballButton = document.querySelector("#ballButton");
     const closeButton = document.querySelector("#close");
+    
+    // table elements
+    const moveList = document.querySelector("#movelist");
+    const moveName = document.querySelector("#moveName");
+    const moveLevel = document.querySelector("#moveLevel");
+    const moveMethod = document.querySelector("#moveMethod");
 
     // set random pokemon to be placeholder upon login
     input.placeholder = randomPoke();
@@ -751,6 +949,10 @@ const init = () => {
             content.hidden = true;
         });
     });
+    
+    moveName.addEventListener('click', () => { sortTable(0, moveList); });
+    moveLevel.addEventListener('click', () => { sortTable(1, moveList); });
+    moveMethod.addEventListener('click', () => { sortTable(2, moveList); });
 };
 
 window.onload = init;

@@ -30,6 +30,7 @@
     "nodemon": "^1.19.3"
   },
   "dependencies": {
-    "pokedex-promise-v2": "^3.2.0"
+    "pokedex-promise-v2": "^3.2.0",
+    "stupid-table-plugin": "^1.1.3"
   }
 }

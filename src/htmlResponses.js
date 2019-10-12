@@ -5,7 +5,6 @@ const index = fs.readFileSync(`${__dirname}/../hosted/client.html`);
 const css = fs.readFileSync(`${__dirname}/../hosted/style.css`);
 const bundle = fs.readFileSync(`${__dirname}/../hosted/bundle.js`);
 
-
 // get index/css/bundle
 const getIndex = (request, response) => {
   response.writeHead(200, { 'Content-Type': 'text/html' });
