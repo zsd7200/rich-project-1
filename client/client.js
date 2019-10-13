@@ -618,17 +618,6 @@ const handleResponse = (xhr) => {
     // url for missingno sprite
     const missingnoURL = "https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png";
     
-    // wipe movesList from previous request
-    $('#movelist tr').slice(1).remove();
-    
-    // set arrows to default (right arrow)
-    for(let i = 0; i < arrows.length; i++)
-        arrows[i].innerHTML = "&#8594;";
-    
-    // reset abilities
-    abilities.innerHTML = "???";
-    hiddenAbility.innerHTML = "???";
-    
     // hide loading pokeball
     const loading = document.querySelector("#loading");
     const innerLoading = document.querySelector("#innerLoading");
@@ -643,8 +632,24 @@ const handleResponse = (xhr) => {
     });
     
     // parse xhr response as JSON
-    const obj = JSON.parse(xhr.response);
-    console.log(obj);
+    let obj = {};
+    
+    // if xhr status is not 201 (create) or 204 (update, reset moves table, abilities, etc., and parse json from response
+    if(xhr.status != 201 && xhr.status != 204) {
+        // wipe movesList from previous request
+        $('#movelist tr').slice(1).remove();
+        
+        // set arrows to default (right arrow)
+        for(let i = 0; i < arrows.length; i++)
+            arrows[i].innerHTML = "&#8594;";
+        
+        // reset abilities
+        abilities.innerHTML = "???";
+        hiddenAbility.innerHTML = "???";
+        
+        obj = JSON.parse(xhr.response);
+        console.log(obj);
+    }    
     
     switch (xhr.status) {
         case 200:
@@ -827,24 +832,29 @@ const requestUpdate = (e, input) => {
 };
 
 //function to send our post request
-const sendPost = (e, nameForm) => {
-    const nameAction = nameForm.getAttribute('action');
-    const nameMethod = nameForm.getAttribute('method');
-
-    const nameField = nameForm.querySelector('#nameField');
-    const ageField = nameForm.querySelector('#ageField');
+const sendPost = (e, input) => {
+    const url = "/addFavorite";
+    let uuid = uuidv4(); // generate a UUID
+    
+    // check to see if there's already a UUID stored
+    if(localStorage.getItem("dunhZ_dexterUUID")) {
+        uuid = localStorage.getItem("dunhZ_dexterUUID");
+    } else {
+        // if there isn't, use the newly generated one
+        localStorage.setItem("dunhZ_dexterUUID", uuid);
+    }
 
     // create new Ajax request
     const xhr = new XMLHttpRequest();
-    xhr.open(nameMethod, nameAction);
+    xhr.open("POST", url);
 
     // set headers and set onload to handle response
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.setRequestHeader('Accept', 'application/json');
     xhr.onload = () => handleResponse(xhr, true);
 
-    // build x-www-form-urlencoded formatted name/age
-    const formData = `name=${nameField.value}&age=${ageField.value}`;
+    // build x-www-form-urlencoded formatted uuid and pokemon name
+    const formData = `uuid=${uuid}&pkmnName=${input.value}`;
 
     xhr.send(formData);
     e.preventDefault();
@@ -860,6 +870,7 @@ const init = () => {
     const innerLoading = document.querySelector("#innerLoading");
     const getButton = document.querySelector("#getButton");    
     const ballButton = document.querySelector("#ballButton");
+    const favButton = document.querySelector("#favorite");
     const closeButton = document.querySelector("#close");
     
     // table elements
@@ -871,8 +882,9 @@ const init = () => {
     // set random pokemon to be placeholder upon login
     input.placeholder = randomPoke();
     
-    // arrow function for requestUpdate, 
+    // arrow function for requestUpdate and sendPost
     const getData = (e) => requestUpdate(e, input);
+    const postData = (e) => sendPost(e, input);
     
     // fill in autocomplete with allPokemon array using jqueryUI
     $(input).autocomplete({
@@ -974,6 +986,9 @@ const init = () => {
         input.value = randomPoke();
         getButton.click();
     });
+
+    // favorite button
+    favorite.addEventListener('click', postData);
 
     // close button to fade out the content section
     closeButton.addEventListener('click', () => {

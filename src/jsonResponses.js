@@ -1,5 +1,6 @@
 const users = {};
 const Pokedex = require('pokedex-promise-v2');
+
 const P = new Pokedex();
 
 // function to respond with JSON
@@ -57,11 +58,11 @@ const getPokemonMeta = (request, response) => respondJSONMeta(request, response,
 // function to add a pokemon to favorites from POST body
 const addFavorite = (request, response, body) => {
   const responseJSON = {
-    message: 'Name and age are both required.',
+    message: 'UUID and Pok&eacute name are required to favorite.',
   };
 
   // check for both required params, otherwise return a bad request
-  if (!body.name || !body.age) {
+  if (!body.uuid || !body.pkmnName) {
     responseJSON.id = 'missingParams';
     return respondJSON(request, response, 400, responseJSON);
   }
@@ -69,15 +70,19 @@ const addFavorite = (request, response, body) => {
   // default 201 code (created)
   let responseCode = 201;
 
-  if (users[body.name]) {
+  if (users[body.uuid]) {
     responseCode = 204; // 204 is for updated object, so set this if users already exists
   } else {
-    users[body.name] = {}; // otherwise create an object with that name
+    users[body.uuid] = {}; // otherwise create an object with that name
+    users[body.uuid].pokemon = []; // holds new pokemon names
   }
 
   // add or update fields for this user name
-  users[body.name].name = body.name;
-  users[body.name].age = body.age;
+  users[body.uuid].uuid = body.uuid;
+  users[body.uuid].nickname = 'Trainer';
+  users[body.uuid].pokemon.push(body.pkmnName);
+
+  console.log(users);
 
   // respond with message if 201 code
   if (responseCode === 201) {

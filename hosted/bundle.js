@@ -591,16 +591,6 @@ var handleResponse = function handleResponse(xhr) {
     // url for missingno sprite
     var missingnoURL = "https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png";
 
-    // wipe movesList from previous request
-    $('#movelist tr').slice(1).remove();
-
-    // set arrows to default (right arrow)
-    for (var i = 0; i < arrows.length; i++) {
-        arrows[i].innerHTML = "&#8594;";
-    } // reset abilities
-    abilities.innerHTML = "???";
-    hiddenAbility.innerHTML = "???";
-
     // hide loading pokeball
     var loading = document.querySelector("#loading");
     var innerLoading = document.querySelector("#innerLoading");
@@ -615,8 +605,23 @@ var handleResponse = function handleResponse(xhr) {
     });
 
     // parse xhr response as JSON
-    var obj = JSON.parse(xhr.response);
-    console.log(obj);
+    var obj = {};
+
+    // if xhr status is not 201 (create) or 204 (update, reset moves table, abilities, etc., and parse json from response
+    if (xhr.status != 201 && xhr.status != 204) {
+        // wipe movesList from previous request
+        $('#movelist tr').slice(1).remove();
+
+        // set arrows to default (right arrow)
+        for (var i = 0; i < arrows.length; i++) {
+            arrows[i].innerHTML = "&#8594;";
+        } // reset abilities
+        abilities.innerHTML = "???";
+        hiddenAbility.innerHTML = "???";
+
+        obj = JSON.parse(xhr.response);
+        console.log(obj);
+    }
 
     switch (xhr.status) {
         case 200:
@@ -794,16 +799,21 @@ var requestUpdate = function requestUpdate(e, input) {
 };
 
 //function to send our post request
-var sendPost = function sendPost(e, nameForm) {
-    var nameAction = nameForm.getAttribute('action');
-    var nameMethod = nameForm.getAttribute('method');
+var sendPost = function sendPost(e, input) {
+    var url = "/addFavorite";
+    var uuid = uuidv4(); // generate a UUID
 
-    var nameField = nameForm.querySelector('#nameField');
-    var ageField = nameForm.querySelector('#ageField');
+    // check to see if there's already a UUID stored
+    if (localStorage.getItem("dunhZ_dexterUUID")) {
+        uuid = localStorage.getItem("dunhZ_dexterUUID");
+    } else {
+        // if there isn't, use the newly generated one
+        localStorage.setItem("dunhZ_dexterUUID", uuid);
+    }
 
     // create new Ajax request
     var xhr = new XMLHttpRequest();
-    xhr.open(nameMethod, nameAction);
+    xhr.open("POST", url);
 
     // set headers and set onload to handle response
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -812,8 +822,8 @@ var sendPost = function sendPost(e, nameForm) {
         return handleResponse(xhr, true);
     };
 
-    // build x-www-form-urlencoded formatted name/age
-    var formData = "name=" + nameField.value + "&age=" + ageField.value;
+    // build x-www-form-urlencoded formatted uuid and pokemon name
+    var formData = "uuid=" + uuid + "&pkmnName=" + input.value;
 
     xhr.send(formData);
     e.preventDefault();
@@ -829,6 +839,7 @@ var init = function init() {
     var innerLoading = document.querySelector("#innerLoading");
     var getButton = document.querySelector("#getButton");
     var ballButton = document.querySelector("#ballButton");
+    var favButton = document.querySelector("#favorite");
     var closeButton = document.querySelector("#close");
 
     // table elements
@@ -840,9 +851,12 @@ var init = function init() {
     // set random pokemon to be placeholder upon login
     input.placeholder = randomPoke();
 
-    // arrow function for requestUpdate, 
+    // arrow function for requestUpdate and sendPost
     var getData = function getData(e) {
         return requestUpdate(e, input);
+    };
+    var postData = function postData(e) {
+        return sendPost(e, input);
     };
 
     // fill in autocomplete with allPokemon array using jqueryUI
@@ -945,6 +959,9 @@ var init = function init() {
         input.value = randomPoke();
         getButton.click();
     });
+
+    // favorite button
+    favorite.addEventListener('click', postData);
 
     // close button to fade out the content section
     closeButton.addEventListener('click', function () {

@@ -36,12 +36,12 @@ const notFound = (request, response) => {
   response.writeHead(200, { 'Content-Type': 'text/html' });
   response.write(notFoundPage);
   response.end();
-}
+};
 
 module.exports = {
   getIndex,
   getCSS,
   getBundle,
   getFavicon,
-  notFound
+  notFound,
 };
