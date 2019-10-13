@@ -79,7 +79,6 @@ const addFavorite = (request, response, body) => {
 
   // add or update fields for this user name
   users[body.uuid].uuid = body.uuid;
-  users[body.uuid].nickname = 'Trainer';
   users[body.uuid].pokemon.push(body.pkmnName);
 
   console.log(users);
@@ -92,6 +91,19 @@ const addFavorite = (request, response, body) => {
   // respond with meta if 204 code
   return respondJSONMeta(request, response, responseCode);
 };
+
+// getUsers function
+const getFavorites = (request, response) => {
+  // create responseJSON to send
+  const responseJSON = {
+    users,
+  };
+
+  // respond with 200
+  return respondJSON(request, response, 200, responseJSON);
+};
+
+const getFavoritesMeta = (request, response) => respondJSONMeta(request, response, 200);
 
 // not found message
 const notFound = (request, response) => {
@@ -108,5 +120,7 @@ module.exports = {
   getPokemon,
   getPokemonMeta,
   addFavorite,
+  getFavorites,
+  getFavoritesMeta,
   notFound,
 };

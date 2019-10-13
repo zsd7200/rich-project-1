@@ -4,7 +4,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <title>Dexter</title>
     
-    <!-- CSS and JQueryUI css -->
+    <!-- CSS, JQueryUI css -->
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     
@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 
-    <!-- JQuery/JqueryUI/Babel scripts -->
+    <!-- JQuery/popover/JqueryUI/Babel scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="popover.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
     
@@ -39,7 +40,7 @@
     
     <section id="content" hidden>
         <button class="icon" id="close"><i class="fas fa-times"></i></button>
-        <button class="icon" id="favorite"><i class="far fa-heart"></i></button>
+        <button class="icon" id="addFavorite"><i id="favButtonTxt" class="far fa-heart" title="Add to Favorite Pok&eacute;mon List"></i></button>
         <h1 id="pkmnName">Pok&eacute;mon Name</h1>
         <section id="errData" hidden>
             <span id="errMessage">???</span><br>
@@ -80,6 +81,12 @@
                 </tr>
             </table>
         </section>
-    </section>
+    </section> 
+    <i id="showFavorites" class="fas fa-heart" title="Favorite Pok&eacute;mon"></i>
+    <div id="favoritesContent">
+        <ul id="favoritesList">
+        </ul>
+    </div>
+    <i id="removeFavorites" class="fa fa-trash" title="Remove All Favorites"></i>
 </body>
 </html>

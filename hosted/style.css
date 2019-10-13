@@ -7,6 +7,12 @@ html, body {
     font-family: 'Source Sans Pro', sans-serif;
     background: linear-gradient(#D1545B 0, #D1545B 47.5%, #000000 47.5%, #000000 52.5%, #DFE0ED 52.5%, #DFE0ED 100%);
 }
+li {
+    list-style: none;
+    padding: 8px;
+}
+li:nth-child(even) { background-color: #dddddd; }
+li:nth-child(odd) { background-color: white; }
 table {
   border-spacing: 0;
   width: 100%;
@@ -23,8 +29,19 @@ th {
 }
 tr:nth-child(even) { background-color: #dddddd; }
 tr:nth-child(odd) { background-color: white; }
+ul { padding: 0px; margin: 0px; }
 
-
+#alert {
+    overflow: auto;
+    width: 45%;
+    margin: auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 3px solid black;
+    border-radius: 25px;
+    position: relative;
+    z-index: 1;
+}
 #ballButton {
     border-radius: 100%;
     border: 20px solid black;
@@ -59,17 +76,6 @@ tr:nth-child(odd) { background-color: white; }
     height: 82%;
     margin: auto;
     margin-top: 15px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 3px solid black;
-    border-radius: 25px;
-    position: relative;
-    z-index: 1;
-}
-#content404 {
-    overflow: auto;
-    width: 45%;
-    margin: auto;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.85);
     border: 3px solid black;
@@ -141,6 +147,18 @@ tr:nth-child(odd) { background-color: white; }
     width: 52.5%; 
     float: right;
 }
+#removeFavorites {
+	position: fixed;
+	left: calc(100% - 50px);
+	top: calc(100% - 40px);
+	cursor: pointer;
+}
+#showFavorites {
+	position: fixed;
+	left: calc(100% - 100px);
+	top: calc(100% - 40px);
+	cursor: pointer;
+}
 #stats { 
     text-align: left; 
     padding: 5%;
@@ -149,6 +167,7 @@ tr:nth-child(odd) { background-color: white; }
     float: left;
 }
 #content span { font-size: 14px; }
+#favoritesContent { display:none; }
 #pkmnName { font-size: 2em; }
 #top { text-align: center; margin: 0 auto; }
 

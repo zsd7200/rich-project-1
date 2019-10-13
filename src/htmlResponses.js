@@ -4,6 +4,7 @@ const fs = require('fs'); // pull in the file system module
 const index = fs.readFileSync(`${__dirname}/../hosted/client.html`);
 const css = fs.readFileSync(`${__dirname}/../hosted/style.css`);
 const bundle = fs.readFileSync(`${__dirname}/../hosted/bundle.js`);
+const popover = fs.readFileSync(`${__dirname}/../hosted/popover.min.js`);
 const favicon = fs.readFileSync(`${__dirname}/../hosted/favicon.png`);
 const notFoundPage = fs.readFileSync(`${__dirname}/../hosted/404.html`);
 
@@ -26,6 +27,12 @@ const getBundle = (request, response) => {
   response.end();
 };
 
+const getPopoverJS = (request, response) => {
+  response.writeHead(200, { 'Content-Type': 'application/javascript' });
+  response.write(popover);
+  response.end();
+};
+
 const getFavicon = (request, response) => {
   response.writeHead(200, { 'Content-Type': 'image/png' });
   response.write(favicon);
@@ -42,6 +49,7 @@ module.exports = {
   getIndex,
   getCSS,
   getBundle,
+  getPopoverJS,
   getFavicon,
   notFound,
 };

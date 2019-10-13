@@ -1,3 +1,12 @@
+// variable to hold pokemon already in list
+let favPokes = [];
+
+// makes if statements in sendPost more readable
+const hearts = {
+    "solid" : "fas fa-heart",
+    "outline" : "far fa-heart"
+};
+
 // array of all pokemon names
 const allPokemon = [
     "Abomasnow", "Abomasnow Mega", "Abra", "Absol", "Absol Mega", "Accelgor", "Aegislash", "Aegislash Blade", "Aerodactyl", "Aerodactyl Mega", "Aggron", "Aggron Mega", "Aipom", "Alakazam", "Alakazam Mega", "Alomomola", "Altaria", "Altaria Mega", "Amaura", "Ambipom", "Amoonguss", "Ampharos", "Ampharos Mega", "Anorith", "Araquanid", "Arbok", "Arcanine", "Arceus", "Archen", "Archeops", "Ariados", "Armaldo", "Aromatisse", "Aron", "Articuno", "Audino", "Audino Mega", "Aurorus", "Avalugg", "Axew", "Azelf", "Azumarill", "Azurill", "Bagon", "Baltoy", "Banette", "Banette Mega", "Barbaracle", "Barboach", "Basculin Blue-Striped", "Basculin Red-Striped", "Bastiodon", "Bayleef", "Beartic", "Beautifly", "Beedrill", "Beedrill Mega", "Beheeyem", "Beldum", "Bellossom", "Bellsprout", "Bergmite", "Bewear", "Bibarel", "Bidoof", "Binacle", "Bisharp", "Blacephalon", "Blastoise", "Blastoise Mega", "Blaziken", "Blaziken Mega", "Blissey", "Blitzle", "Boldore", "Bonsly", "Bouffalant", "Bounsweet", "Braixen", "Braviary", "Breloom", "Brionne", "Bronzong", "Bronzor", "Bruxish", "Budew", "Buizel", "Bulbasaur", "Buneary", "Bunnelby", "Burmy", "Butterfree", "Buzzwole", "Cacnea", "Cacturne", "Camerupt", "Camerupt Mega", "Carbink", "Carnivine", "Carracosta", "Carvanha", "Cascoon", "Castform", "Castform Rainy", "Castform Snowy", "Castform Sunny", "Caterpie", "Celebi", "Celesteela", "Chandelure", "Chansey", "Charizard", "Charizard Mega-X", "Charizard Mega-Y", "Charjabug", "Charmander", "Charmeleon", "Chatot", "Cherrim", "Cherubi", "Chesnaught", "Chespin", "Chikorita", "Chimchar", "Chimecho", "Chinchou", "Chingling", "Cinccino", "Clamperl", "Clauncher", "Clawitzer", "Claydol", "Clefable", "Clefairy", "Cleffa", "Cloyster", "Cobalion", "Cofagrigus", "Combee", "Combusken", "Comfey", "Conkeldurr", "Corphish", "Corsola", "Cosmoem", "Cosmog", "Cottonee", "Crabominable", "Crabrawler", "Cradily", "Cranidos", "Crawdaunt", "Cresselia", "Croagunk", "Crobat", "Croconaw", "Crustle", "Cryogonal", "Cubchoo", "Cubone", "Cutiefly", "Cyndaquil", "Darkrai", "Darmanitan Standard", "Darmanitan Zen", "Dartrix", "Darumaka", "Decidueye", "Dedenne", "Deerling", "Deino", "Delcatty", "Delibird", "Delphox", "Deoxys", "Deoxys Attack", "Deoxys Defense", "Deoxys Speed", "Dewgong", "Dewott", "Dewpider", "Dhelmise", "Dialga", "Diancie", "Diancie Mega", "Diggersby", "Diglett", "Diglett Alola", "Ditto", "Dodrio", "Doduo", "Donphan", "Doublade", "Dragalge", "Dragonair", "Dragonite", "Drampa", "Drapion", "Dratini", "Drifblim", "Drifloon", "Drilbur", "Drowzee", "Druddigon", "Ducklett", "Dugtrio", "Dugtrio Alola", "Dunsparce", "Duosion", "Durant", "Dusclops", "Dusknoir", "Duskull", "Dustox", "Dwebble", "Eelektrik", "Eelektross", "Eevee", "Ekans", "Electabuzz", "Electivire", "Electrike", "Electrode", "Elekid", "Elgyem", "Emboar", "Emolga", "Empoleon", "Entei", "Escavalier", "Espeon", "Espurr", "Excadrill", "Exeggcute", "Exeggutor", "Exeggutor Alola", "Exploud", "Farfetch\'d", "Fearow", "Feebas", "Fennekin", "Feraligatr", "Ferroseed", "Ferrothorn", "Finneon", "Flaaffy", "Flabebe", "Flareon", "Fletchinder", "Fletchling", "Floatzel", "Floette", "Florges", "Flygon", "Fomantis", "Foongus", "Forretress", "Fraxure", "Frillish", "Froakie", "Frogadier", "Froslass", "Furfrou", "Furret", "Gabite", "Gallade", "Gallade Mega", "Galvantula", "Garbodor", "Garchomp", "Garchomp Mega", "Gardevoir", "Gardevoir Mega", "Gastly", "Gastrodon", "Genesect", "Gengar", "Gengar Mega", "Geodude", "Geodude Alola", "Gible", "Gigalith", "Girafarig", "Giratina", "Giratina Origin", "Glaceon", "Glalie", "Glalie Mega", "Glameow", "Gligar", "Gliscor", "Gloom", "Gogoat", "Golbat", "Goldeen", "Golduck", "Golem", "Golem Alola", "Golett", "Golisopod", "Golurk", "Goodra", "Goomy", "Gorebyss", "Gothita", "Gothitelle", "Gothorita", "Gourgeist", "Gourgeist Small", "Gourgeist Large", "Gourgeist Super", "Granbull", "Graveler", "Graveler Alola", "Greninja", "Greninja Ash", "Grimer", "Grimer Alola", "Grotle", "Groudon", "Groudon Primal", "Grovyle", "Growlithe", "Grubbin", "Grumpig", "Gulpin", "Gumshoos", "Gurdurr", "Guzzlord", "Gyarados", "Gyarados Mega", "Hakamo-o", "Happiny", "Hariyama", "Haunter", "Hawlucha", "Haxorus", "Heatmor", "Heatran", "Heliolisk", "Helioptile", "Heracross", "Heracross Mega", "Herdier", "Hippopotas", "Hippowdon", "Hitmonchan", "Hitmonlee", "Hitmontop", "Ho-Oh", "Honchkrow", "Honedge", "Hoopa", "Hoopa Unbound", "Hoothoot", "Hoppip", "Horsea", "Houndoom", "Houndoom Mega", "Houndour", "Huntail", "Hydreigon", "Hypno", "Igglybuff", "Illumise", "Incineroar", "Infernape", "Inkay", "Ivysaur", "Jangmo-o", "Jellicent", "Jigglypuff", "Jirachi", "Jolteon", "Joltik", "Jumpluff", "Jynx", "Kabuto", "Kabutops", "Kadabra", "Kakuna", "Kangaskhan", "Kangaskhan Mega", "Karrablast", "Kartana", "Kecleon", "Keldeo Ordinary", "Keldeo Resolute", "Kingdra", "Kingler", "Kirlia", "Klang", "Klefki", "Klink", "Klinklang", "Koffing", "Komala", "Kommo-o", "Krabby", "Kricketot", "Kricketune", "Krokorok", "Krookodile", "Kyogre", "Kyogre Primal", "Kyurem", "Kyurem Black", "Kyurem White", "Lairon", "Lampent", "Landorus Incarnate", "Landorus Therian", "Lanturn", "Lapras", "Larvesta", "Larvitar", "Latias", "Latias Mega", "Latios", "Latios Mega", "Leafeon", "Leavanny", "Ledian", "Ledyba", "Lickilicky", "Lickitung", "Liepard", "Lileep", "Lilligant", "Lillipup", "Linoone", "Litleo", "Litten", "Litwick", "Lombre", "Lopunny", "Lopunny Mega", "Lotad", "Loudred", "Lucario", "Lucario Mega", "Ludicolo", "Lugia", "Lumineon", "Lunala", "Lunatone", "Lurantis", "Luvdisc", "Luxio", "Luxray", "Lycanroc", "Lycanroc Dusk", "Lycanroc Midnight", "Machamp", "Machoke", "Machop", "Magby", "Magcargo", "Magearna", "Magikarp", "Magmar", "Magmortar", "Magnemite", "Magneton", "Magnezone", "Makuhita", "Malamar", "Mamoswine", "Manaphy", "Mandibuzz", "Manectric", "Manectric Mega", "Mankey", "Mantine", "Mantyke", "Maractus", "Mareanie", "Mareep", "Marill", "Marowak", "Marowak Alola", "Marshadow", "Marshtomp", "Masquerain", "Mawile", "Mawile Mega", "Medicham", "Medicham Mega", "Meditite", "Meganium", "Meloetta", "Meloetta Pirouette", "Meowstic Male", "Meowstic Female", "Meowth", "Meowth Alola", "Mesprit", "Metagross", "Metagross Mega", "Metang", "Metapod", "Mew", "Mewtwo", "Mewtwo Mega-X", "Mewtwo Mega-Y", "Mienfoo", "Mienshao", "Mightyena", "Milotic", "Miltank", "Mime Jr.", "Mimikyu", "Minccino", "Minior Meteor", "Minior Core", "Minun", "Misdreavus", "Mismagius", "Moltres", "Monferno", "Morelull", "Mothim", "Mr. Mime", "Mudbray", "Mudkip", "Mudsdale", "Muk", "Muk Alola", "Munchlax", "Munna", "Murkrow", "Musharna", "Naganadel", "Natu", "Necrozma", "Necrozma Dusk Mane", "Necrozma Dawn Wings", "Necrozma Ultra", "Nidoking", "Nidoqueen", "Nidoran F", "Nidoran M", "Nidorina", "Nidorino", "Nihilego", "Nincada", "Ninetales", "Ninetails Alola", "Ninjask", "Noctowl", "Noibat", "Noivern", "Nosepass", "Numel", "Nuzleaf", "Octillery", "Oddish", "Omanyte", "Omastar", "Onix", "Oranguru", "Oricorio Baile", "Oricorio Pa'u", "Oricorio Pom-Pom", "Oricorio Sensu", "Oshawott", "Pachirisu", "Palkia", "Palossand", "Palpitoad", "Pancham", "Pangoro", "Panpour", "Pansage", "Pansear", "Paras", "Parasect", "Passimian", "Patrat", "Pawniard", "Pelipper", "Persian", "Persian Alola", "Petilil", "Phanpy", "Phantump", "Pheromosa", "Phione", "Pichu", "Pidgeot", "Pidgeot Mega", "Pidgeotto", "Pidgey", "Pidove", "Pignite", "Pikachu", "Pikipek", "Piloswine", "Pineco", "Pinsir", "Pinsir Mega", "Piplup", "Plusle", "Poipole", "Politoed", "Poliwag", "Poliwhirl", "Poliwrath", "Ponyta", "Poochyena", "Popplio", "Porygon2", "Porygon", "Porygon-Z", "Primarina", "Primeape", "Prinplup", "Probopass", "Psyduck", "Pumpkaboo", "Pumpkaboo Small", "Pumpkaboo Large", "Pumpkaboo Super", "Pupitar", "Purrloin", "Purugly", "Pyroar", "Pyukumuku", "Quagsire", "Quilava", "Quilladin", "Qwilfish", "Raichu", "Raichu Alola", "Raikou", "Ralts", "Rampardos", "Rapidash", "Raticate", "Raticate Alola", "Rattata", "Ratatta Alola", "Rayquaza", "Rayquaza Mega", "Regice", "Regigigas", "Regirock", "Registeel", "Relicanth", "Remoraid", "Reshiram", "Reuniclus", "Rhydon", "Rhyhorn", "Rhyperior", "Ribombee", "Riolu", "Rockruff", "Roggenrola", "Roselia", "Roserade", "Rotom", "Rotom Fan", "Rotom Frost", "Rotom Heat", "Rotom Mow", "Rotom Wash", "Rowlet", "Rufflet", "Sableye", "Sableye Mega", "Salamence", "Salamence Mega", "Salandit", "Salazzle", "Samurott", "Sandile", "Sandshrew", "Sandshrew Alola", "Sandslash", "Sandslash Alola", "Sandygast", "Sawk", "Sawsbuck", "Scatterbug", "Sceptile", "Sceptile Mega", "Scizor", "Scizor Mega", "Scolipede", "Scrafty", "Scraggy", "Scyther", "Seadra", "Seaking", "Sealeo", "Seedot", "Seel", "Seismitoad", "Sentret", "Serperior", "Servine", "Seviper", "Sewaddle", "Sharpedo", "Sharpedo Mega", "Shaymin", "Shaymin Sky", "Shedinja", "Shelgon", "Shellder", "Shellos", "Shelmet", "Shieldon", "Shiftry", "Shiinotic", "Shinx", "Shroomish", "Shuckle", "Shuppet", "Sigilyph", "Silcoon", "Silvally", "Simipour", "Simisage", "Simisear", "Skarmory", "Skiddo", "Skiploom", "Skitty", "Skorupi", "Skrelp", "Skuntank", "Slaking", "Slakoth", "Sliggoo", "Slowbro", "Slowbro Mega", "Slowking", "Slowpoke", "Slugma", "Slurpuff", "Smeargle", "Smoochum", "Sneasel", "Snivy", "Snorlax", "Snorunt", "Snover", "Snubbull", "Solgaleo", "Solosis", "Solrock", "Spearow", "Spewpa", "Spheal", "Spinarak", "Spinda", "Spiritomb", "Spoink", "Spritzee", "Squirtle", "Stakataka", "Stantler", "Staraptor", "Staravia", "Starly", "Starmie", "Staryu", "Steelix", "Steelix Mega", "Steenee", "Stoutland", "Stufful", "Stunfisk", "Stunky", "Sudowoodo", "Suicune", "Sunflora", "Sunkern", "Surskit", "Swablu", "Swadloon", "Swalot", "Swampert", "Swampert Mega", "Swanna", "Swellow", "Swinub", "Swirlix", "Swoobat", "Sylveon", "Taillow", "Talonflame", "Tangela", "Tangrowth", "Tapu Bulu", "Tapu Fini", "Tapu Koko", "Tapu Lele", "Tauros", "Teddiursa", "Tentacool", "Tentacruel", "Tepig", "Terrakion", "Throh", "Thundurus Incarnate", "Thundurus Therian", "Timburr", "Tirtouga", "Togedemaru", "Togekiss", "Togepi", "Togetic", "Torchic", "Torkoal", "Tornadus Incarnate", "Tornadus Therian", "Torracat", "Torterra", "Totodile", "Toucannon", "Toxapex", "Toxicroak", "Tranquill", "Trapinch", "Treecko", "Trevenant", "Tropius", "Trubbish", "Trumbeak", "Tsareena", "Turtonator", "Turtwig", "Tympole", "Tynamo", "Type: Null", "Typhlosion", "Tyranitar", "Tyranitar Mega", "Tyrantrum", "Tyrogue", "Tyrunt", "Umbreon", "Unfezant", "Unown", "Ursaring", "Uxie", "Vanillish", "Vanillite", "Vanilluxe", "Vaporeon", "Venipede", "Venomoth", "Venonat", "Venusaur", "Venusaur Mega", "Vespiquen", "Vibrava", "Victini", "Victreebel", "Vigoroth", "Vikavolt", "Vileplume", "Virizion", "Vivillon", "Volbeat", "Volcanion", "Volcarona", "Voltorb", "Vullaby", "Vulpix", "Vulpix Alola", "Wailmer", "Wailord", "Walrein", "Wartortle", "Watchog", "Weavile", "Weedle", "Weepinbell", "Weezing", "Whimsicott", "Whirlipede", "Whiscash", "Whismur", "Wigglytuff", "Wimpod", "Wingull", "Wishiwashi Solo", "Wishiwashi School", "Wobbuffet", "Woobat", "Wooper", "Wormadam Plant", "Wormadam Sandy", "Wormadam Trash", "Wurmple", "Wynaut", "Xatu", "Xerneas", "Xurkitree", "Yamask", "Yanma", "Yanmega", "Yungoos", "Yveltal", "Zangoose", "Zapdos", "Zebstrika", "Zekrom", "Zeraora", "Zigzagoon", "Zoroark", "Zorua", "Zubat", "Zweilous", "Zygarde", "Zygarde 10%", "Zygarde Complete"
@@ -579,7 +588,36 @@ const sortTable = (column, table) => {
     }
 };
 
-const handleResponse = (xhr) => {   
+const configurePopover = (showFavoritesButton, favoritesContent, click = true) => { 
+    // destroy current popover
+    $(showFavoritesButton).fu_popover('destroy');
+
+    // reconfigure popover
+    $(showFavoritesButton).fu_popover({
+        // popover content
+        content: $(favoritesContent).html(),
+        // is dismissable
+        dismissable: true,
+        // top, bottom, left, right
+        placement: 'top',
+        // popover title
+        title: 'Favorite Pok&eacute;mon',
+    });
+    
+    if (click) {
+        // force click button to show popover
+        showFavoritesButton.click();   
+    }
+};
+
+// remove all favorites
+const removeFavorites = (favoritesList, showFavoritesButton, favoritesContent) => {
+    favPokes = [];
+        
+    configurePopover(showFavoritesButton, favoritesContent, false);
+};
+
+const handleResponse = (xhr, favorite) => {   
     // grab dom elements
     const name = document.querySelector('#pkmnName');
     const img = document.querySelector('#pkmnImg');
@@ -615,12 +653,20 @@ const handleResponse = (xhr) => {
     const errMessage = document.querySelector("#errMessage");
     const errID = document.querySelector("#errID");
     
-    // url for missingno sprite
-    const missingnoURL = "https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png";
+    // favorites DOM elements
+    const favoritesList = document.querySelector("#favoritesList");
+    const favoritesContent = document.querySelector("#favoritesContent");
+    const showFavoritesButton = document.querySelector("#showFavorites");
+    const addFavoriteButton = document.querySelector("#addFavorite");
+    const favButtonTxt = document.querySelector("#favButtonTxt");
+
     
     // hide loading pokeball
     const loading = document.querySelector("#loading");
     const innerLoading = document.querySelector("#innerLoading");
+    
+    // url for missingno sprite
+    const missingnoURL = "https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png";
     
     $(loading).animate({
         opacity: 0.0
@@ -634,21 +680,23 @@ const handleResponse = (xhr) => {
     // parse xhr response as JSON
     let obj = {};
     
-    // if xhr status is not 201 (create) or 204 (update, reset moves table, abilities, etc., and parse json from response
+    // if xhr status is not 201 (create) or 204 (update), reset moves table, abilities, etc., and parse json from response
     if(xhr.status != 201 && xhr.status != 204) {
-        // wipe movesList from previous request
-        $('#movelist tr').slice(1).remove();
-        
-        // set arrows to default (right arrow)
-        for(let i = 0; i < arrows.length; i++)
-            arrows[i].innerHTML = "&#8594;";
-        
-        // reset abilities
-        abilities.innerHTML = "???";
-        hiddenAbility.innerHTML = "???";
+        // reset data if not showing favorites
+        if(favorite != true) {
+            // wipe movesList from previous request
+            $('#movelist tr').slice(1).remove();
+            
+            // set arrows to default (right arrow)
+            for(let i = 0; i < arrows.length; i++)
+                arrows[i].innerHTML = "&#8594;";
+            
+            // reset abilities
+            abilities.innerHTML = "???";
+            hiddenAbility.innerHTML = "???";
+        }
         
         obj = JSON.parse(xhr.response);
-        console.log(obj);
     }    
     
     switch (xhr.status) {
@@ -708,10 +756,27 @@ const handleResponse = (xhr) => {
         
         // set height to be shorter so a scrollbar won't appear
         $("#moves").css("height" , "15%");
+        
+        // set fav heart to be an outline
+        favButtonTxt.setAttribute("class", hearts["outline"]);
     }
     
     // check if obj.name exists (basically, if data is sent back)
     if(obj.name) {
+        addFavoriteButton.disabled = false;
+        
+        // change heart icon if pokemon is in favPokes
+        for(let i = 0; i < favPokes.length; i++) {
+            if(obj.name === favPokes[i]) {
+                favButtonTxt.setAttribute("class", hearts["solid"]);
+                addFavoriteButton.disabled = true;
+                break;
+            } else {
+                favButtonTxt.setAttribute("class", hearts["outline"]);
+                addFavoriteButton.disabled = false;
+            }
+        }
+        
         // get name with proper formatting
         name.innerHTML = handleName(obj.name);
         
@@ -807,24 +872,50 @@ const handleResponse = (xhr) => {
         if(hiddenAbility.innerHTML === "???") {
             hiddenTitle.hidden = true;
         }
-        
-        
-    }
+    } else if (obj.users) {  // if users exists, update favorites data
+    
+        // search for UUID
+        if(obj.users[localStorage.getItem("dunhZ_dexterUUID")]) {
+            const uuid = localStorage.getItem("dunhZ_dexterUUID");
+            
+                // create a variable to check for duplicates
+                let dupe = false;
 
+                // search for duplicates
+                for(let i = 0; i < favPokes.length; i++) {
+                    if(obj.users[uuid].pokemon[favPokes.length] === favPokes[i]) {
+                        dupe = true;
+                        console.log(obj.users[uuid].pokemon[favPokes.length]);
+                        break;
+                    }
+                }
+                
+                // if not a duplicate, create an li, append to list, and reconfigure popover menu
+                if(dupe === false && typeof obj.users[uuid].pokemon[favPokes.length] != "undefined") {
+                    const li = document.createElement('li');
+                    li.innerHTML = obj.users[uuid].pokemon[favPokes.length];
+                    favPokes.push(obj.users[uuid].pokemon[favPokes.length]);
+                    console.log(li);
+                    favoritesList.appendChild(li);
+                    configurePopover(showFavoritesButton, favoritesContent);
+                }
+        }
+    }
 };
 
 // gets data from server/pokeapi
-const requestUpdate = (e, input) => {
-    const url = "/pokemon?=" + input.value;
-    console.log(url);
-
+const requestUpdate = (e, url) => {
     // create new Ajax request
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.setRequestHeader('Accept', 'application/json');
 
     // if get request or head request
-    xhr.onload = () => handleResponse(xhr);
+    if(url.charAt(1) === 'p') {                         // if URL is "/pokemon?="
+        xhr.onload = () => handleResponse(xhr, false);
+    } else if (url.charAt(1) === 'g') {                 // if URL is "/getFavorites"
+        xhr.onload = () => handleResponse(xhr, true);
+    }
 
     xhr.send();
     e.preventDefault();
@@ -835,6 +926,9 @@ const requestUpdate = (e, input) => {
 const sendPost = (e, input) => {
     const url = "/addFavorite";
     let uuid = uuidv4(); // generate a UUID
+    const favButtonTxt = document.querySelector("#favButtonTxt"); // needed to swap heart icon
+    const addFavoriteButton = document.querySelector("#addFavorite");
+
     
     // check to see if there's already a UUID stored
     if(localStorage.getItem("dunhZ_dexterUUID")) {
@@ -855,6 +949,12 @@ const sendPost = (e, input) => {
 
     // build x-www-form-urlencoded formatted uuid and pokemon name
     const formData = `uuid=${uuid}&pkmnName=${input.value}`;
+        
+    // swap heart icon
+    if(favButtonTxt.getAttribute("class") === hearts["outline"]) {
+        favButtonTxt.setAttribute("class", hearts["solid"]);
+        addFavorite.disabled = true;
+    }
 
     xhr.send(formData);
     e.preventDefault();
@@ -870,8 +970,12 @@ const init = () => {
     const innerLoading = document.querySelector("#innerLoading");
     const getButton = document.querySelector("#getButton");    
     const ballButton = document.querySelector("#ballButton");
-    const favButton = document.querySelector("#favorite");
+    const addFavoriteButton = document.querySelector("#addFavorite");
+    const showFavoritesButton = document.querySelector("#showFavorites");
+    const favoritesContent = document.querySelector("#favoritesContent");
+    const favoritesList = document.querySelector("#favoritesList");
     const closeButton = document.querySelector("#close");
+    const removeButton = document.querySelector("#removeFavorites");
     
     // table elements
     const moveList = document.querySelector("#movelist");
@@ -883,7 +987,9 @@ const init = () => {
     input.placeholder = randomPoke();
     
     // arrow function for requestUpdate and sendPost
-    const getData = (e) => requestUpdate(e, input);
+    const getData = (e) => requestUpdate(e, ("/pokemon?=" + input.value));
+    const getFavorites = (e) => requestUpdate(e, "/getFavorites");
+    const remFavorites = () => removeFavorites(favoritesList, showFavoritesButton, favoritesContent);
     const postData = (e) => sendPost(e, input);
     
     // fill in autocomplete with allPokemon array using jqueryUI
@@ -986,9 +1092,15 @@ const init = () => {
         input.value = randomPoke();
         getButton.click();
     });
-
+     
     // favorite button
-    favorite.addEventListener('click', postData);
+    addFavoriteButton.addEventListener('click', postData);
+    
+    // favorite list
+    showFavoritesButton.addEventListener('click', getFavorites);
+
+    // remove favorites
+    removeButton.addEventListener('click', remFavorites);
 
     // close button to fade out the content section
     closeButton.addEventListener('click', () => {
