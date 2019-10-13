@@ -52,17 +52,6 @@ tr:nth-child(odd) { background-color: white; }
     margin-left: -70px;
     z-index: 0;
 }
-#close {
-    float: right;
-    position: relative;
-    right: 20px;
-    top: 10px;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    font-size: 14pt;
-    font-weight: bold;
-}
 #content {
     overflow: auto;
     opacity: 0;
@@ -164,6 +153,16 @@ tr:nth-child(odd) { background-color: white; }
 #top { text-align: center; margin: 0 auto; }
 
 .arrow { float: right; }
+.icon {
+    float: right;
+    position: relative;
+    right: 20px;
+    top: 10px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font-size: 14pt;
+}
 .stat {
     height: 10px;
     width: 5px;
