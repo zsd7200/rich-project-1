@@ -24,6 +24,7 @@ th {
 tr:nth-child(even) { background-color: #dddddd; }
 tr:nth-child(odd) { background-color: white; }
 
+
 #ballButton {
     border-radius: 100%;
     border: 20px solid black;
@@ -79,7 +80,6 @@ tr:nth-child(odd) { background-color: white; }
 #content404 {
     overflow: auto;
     width: 45%;
-    height: 25%;
     margin: auto;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.85);
