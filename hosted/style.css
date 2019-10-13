@@ -7,6 +7,7 @@ html, body {
     font-family: 'Source Sans Pro', sans-serif;
     background: linear-gradient(#D1545B 0, #D1545B 47.5%, #000000 47.5%, #000000 52.5%, #DFE0ED 52.5%, #DFE0ED 100%);
 }
+h4 { padding-top: 20px; padding-bottom: 20px; font-family: 'Source Sans Pro', sans-serif; font-weight: bold; }
 li {
     list-style: none;
     padding: 8px;
@@ -72,7 +73,7 @@ ul { padding: 0px; margin: 0px; }
 #content {
     overflow: auto;
     opacity: 0;
-    width: 65%;
+    width: 67.5%;
     height: 82%;
     margin: auto;
     margin-top: 15px;
@@ -111,13 +112,13 @@ ul { padding: 0px; margin: 0px; }
     border-radius: 100%;
     border: 6px solid black;
     background-color: #DFE0ED;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -20px;
-    margin-left: -19px;
+    margin-top: -18px;
+    margin-left: -18px;
     z-index: 3;
 }
 #loading {
@@ -125,8 +126,8 @@ ul { padding: 0px; margin: 0px; }
     border-radius: 100%;
     border: 10px solid black;
     background: linear-gradient(#D1545B 0, #D1545B 45%, #000000 45%, #000000 55%, #DFE0ED 55%, #DFE0ED 100%);
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -137,14 +138,14 @@ ul { padding: 0px; margin: 0px; }
 #moves {
     overflow: auto;
     height: 37.5%;
-    width: 90%;
+    width: 100%;
     padding: 5%;
     padding-top: 0%;
 }
 #pictures { 
-    padding-left: 5%; 
-    padding-right: 5%; 
-    width: 52.5%; 
+    padding-left: 3%; 
+    padding-right: 3%; 
+    width: 55%; 
     float: right;
 }
 #removeFavorites {
@@ -161,14 +162,14 @@ ul { padding: 0px; margin: 0px; }
 }
 #stats { 
     text-align: left; 
-    padding: 5%;
+    padding: 3%;
     padding-top: 0%;
-    width: 27.5%; 
+    width: 26%; 
     float: left;
 }
 #content span { font-size: 14px; }
 #favoritesContent { display:none; }
-#pkmnName { font-size: 2em; }
+#pkmnName { font-size: 2em; padding-top: 26.5px; padding-bottom: 26.5px; font-weight: bold; }
 #top { text-align: center; margin: 0 auto; }
 
 .arrow { float: right; }
@@ -176,7 +177,7 @@ ul { padding: 0px; margin: 0px; }
     float: right;
     position: relative;
     right: 20px;
-    top: 10px;
+    top: -80px;
     border: 0;
     background: none;
     cursor: pointer;

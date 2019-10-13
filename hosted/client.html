@@ -5,8 +5,10 @@
     <title>Dexter</title>
     
     <!-- CSS, JQueryUI css -->
-    <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+
     
     <!-- FontAwesome and google fonts -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -26,7 +28,7 @@
 </head>
 <body>
     <section id="top">
-        <h2>Dexter</h2>
+        <h4>Dexter</h4>
         <button id="ballButton" title="Click me for a random Pok&eacute;mon!"></button>
         <div id="loading" title="Loading..." hidden><div id="innerLoading"></div></div>
         
@@ -39,9 +41,10 @@
     </section>
     
     <section id="content" hidden>
+        <h1 id="pkmnName">Pok&eacute;mon Name</h1>
         <button class="icon" id="close"><i class="fas fa-times"></i></button>
         <button class="icon" id="addFavorite"><i id="favButtonTxt" class="far fa-heart" title="Add to Favorite Pok&eacute;mon List"></i></button>
-        <h1 id="pkmnName">Pok&eacute;mon Name</h1>
+        
         <section id="errData" hidden>
             <span id="errMessage">???</span><br>
             <span><b>ID: </b><span id="errID">???</span></span><br><br>
