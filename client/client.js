@@ -588,35 +588,6 @@ const sortTable = (column, table) => {
     }
 };
 
-const configurePopover = (showFavoritesButton, favoritesContent, click = true) => { 
-    // destroy current popover
-    $(showFavoritesButton).fu_popover('destroy');
-
-    // reconfigure popover
-    $(showFavoritesButton).fu_popover({
-        // popover content
-        content: $(favoritesContent).html(),
-        // is dismissable
-        dismissable: true,
-        // top, bottom, left, right
-        placement: 'top',
-        // popover title
-        title: 'Favorite Pok&eacute;mon',
-    });
-    
-    if (click) {
-        // force click button to show popover
-        showFavoritesButton.click();   
-    }
-};
-
-// remove all favorites
-const removeFavorites = (favoritesList, showFavoritesButton, favoritesContent) => {
-    favPokes = [];
-        
-    configurePopover(showFavoritesButton, favoritesContent, false);
-};
-
 const handleResponse = (xhr, favorite) => {   
     // grab dom elements
     const name = document.querySelector('#pkmnName');
@@ -653,13 +624,14 @@ const handleResponse = (xhr, favorite) => {
     const errMessage = document.querySelector("#errMessage");
     const errID = document.querySelector("#errID");
     
+    const successData = document.querySelector("#successData");
+    const successName = document.querySelector("#successName");
+    const successMsg = document.querySelector("#successMsg");
+    
     // favorites DOM elements
-    const favoritesList = document.querySelector("#favoritesList");
-    const favoritesContent = document.querySelector("#favoritesContent");
     const showFavoritesButton = document.querySelector("#showFavorites");
     const addFavoriteButton = document.querySelector("#addFavorite");
     const favButtonTxt = document.querySelector("#favButtonTxt");
-
     
     // hide loading pokeball
     const loading = document.querySelector("#loading");
@@ -701,19 +673,27 @@ const handleResponse = (xhr, favorite) => {
     
     switch (xhr.status) {
         case 200:
-            name.innerHTML = `<b>Success</b>`;
+            successData.hidden = true;
             break;
         case 201:
-            name.innerHTML = `<b>Create</b>`;
+            successData.hidden = false;
+            successName.innerHTML = "201: Data Created";
+            successMsg.innerHTML = "Favorites data has been successfully created.";
+            $(successData).animate({
+                opacity: 1.0
+            }, 200);
+
             break;
         case 204:
-            name.innerHTML = `<b>Updated (No Content)</b>`;
+            successData.hidden = false;
+            successName.innerHTML = "204: Data Updated";
+            successMsg.innerHTML = "Favorites data has been successfully updated.";
+            $(successData).animate({
+                opacity: 1.0
+            }, 200);
             break;
         case 400:
             name.innerHTML = `<b>Bad Request</b>`;
-            break;
-        case 404:
-            name.innerHTML = `<b>Resource Not Found</b>`;
             break;
         default:
             name.innerHTML = `Error code not implemented by client.`;
@@ -763,6 +743,7 @@ const handleResponse = (xhr, favorite) => {
     
     // check if obj.name exists (basically, if data is sent back)
     if(obj.name) {
+        favButtonTxt.setAttribute("class", hearts["outline"]);
         addFavoriteButton.disabled = false;
         
         // change heart icon if pokemon is in favPokes
@@ -875,30 +856,30 @@ const handleResponse = (xhr, favorite) => {
     } else if (obj.users) {  // if users exists, update favorites data
     
         // search for UUID
-        if(obj.users[localStorage.getItem("dunhZ_dexterUUID")]) {
+        if(obj.users[localStorage.getItem("dunhZ_dexterUUID")]) {            
             const uuid = localStorage.getItem("dunhZ_dexterUUID");
-            
-                // create a variable to check for duplicates
-                let dupe = false;
+            const fav = document.querySelector("#showFavorites");
 
-                // search for duplicates
-                for(let i = 0; i < favPokes.length; i++) {
-                    if(obj.users[uuid].pokemon[favPokes.length] === favPokes[i]) {
-                        dupe = true;
-                        console.log(obj.users[uuid].pokemon[favPokes.length]);
-                        break;
-                    }
-                }
-                
-                // if not a duplicate, create an li, append to list, and reconfigure popover menu
-                if(dupe === false && typeof obj.users[uuid].pokemon[favPokes.length] != "undefined") {
-                    const li = document.createElement('li');
-                    li.innerHTML = obj.users[uuid].pokemon[favPokes.length];
-                    favPokes.push(obj.users[uuid].pokemon[favPokes.length]);
-                    console.log(li);
-                    favoritesList.appendChild(li);
-                    configurePopover(showFavoritesButton, favoritesContent);
-                }
+            // create an unordered list
+            let formattedList = `<ul>`;
+
+            // populate list with pokemon from response object
+            for(let i = 0; i < obj.users[uuid].pokemon.length; i++) {
+                formattedList += `<li>`;
+                formattedList += obj.users[uuid].pokemon[i];
+                formattedList += `</li>`;
+
+            }
+
+            formattedList += `</ul>`;
+
+            // send to popover menu
+            $(fav).attr('data-content', formattedList);
+            $(fav).data('bs.popover').setContent();
+            $(fav).popover('show');
+            
+            // add latest pokemon to favPokes array
+            favPokes = obj.users[uuid].pokemon;
         }
     }
 };
@@ -972,10 +953,10 @@ const init = () => {
     const ballButton = document.querySelector("#ballButton");
     const addFavoriteButton = document.querySelector("#addFavorite");
     const showFavoritesButton = document.querySelector("#showFavorites");
-    const favoritesContent = document.querySelector("#favoritesContent");
-    const favoritesList = document.querySelector("#favoritesList");
+    const favButtonTxt = document.querySelector("#favButtonTxt");
     const closeButton = document.querySelector("#close");
-    const removeButton = document.querySelector("#removeFavorites");
+    const successBtn = document.querySelector("#successBtn");
+    const successData = document.querySelector("#successData");
     
     // table elements
     const moveList = document.querySelector("#movelist");
@@ -989,7 +970,6 @@ const init = () => {
     // arrow function for requestUpdate and sendPost
     const getData = (e) => requestUpdate(e, ("/pokemon?=" + input.value));
     const getFavorites = (e) => requestUpdate(e, "/getFavorites");
-    const remFavorites = () => removeFavorites(favoritesList, showFavoritesButton, favoritesContent);
     const postData = (e) => sendPost(e, input);
     
     // fill in autocomplete with allPokemon array using jqueryUI
@@ -1095,19 +1075,27 @@ const init = () => {
      
     // favorite button
     addFavoriteButton.addEventListener('click', postData);
-    
+        
     // favorite list
     showFavoritesButton.addEventListener('click', getFavorites);
-
-    // remove favorites
-    removeButton.addEventListener('click', remFavorites);
-
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    });
+    
     // close button to fade out the content section
     closeButton.addEventListener('click', () => {
         $(content).animate({
             opacity: 0.0
         }, 500, () => {
             content.hidden = true;
+        });
+    });
+    
+    successBtn.addEventListener('click', () => {
+        $(successData).animate({
+            opacity: 0.0
+        }, 200, () => {
+            successData.hidden = true;
         });
     });
     

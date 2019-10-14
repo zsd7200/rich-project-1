@@ -13,7 +13,6 @@ const urlStruct = {
     '/': htmlHandler.getIndex,
     '/style.css': htmlHandler.getCSS,
     '/bundle.js': htmlHandler.getBundle,
-    '/popover.min.js': htmlHandler.getPopoverJS,
     '/favicon.png': htmlHandler.getFavicon,
     '/pokemon': jsonHandler.getPokemon,
     '/getFavorites': jsonHandler.getFavorites,

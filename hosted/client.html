@@ -16,7 +16,8 @@
 
     <!-- JQuery/popover/JqueryUI/Babel scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="popover.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
     
@@ -40,6 +41,12 @@
         </div>
     </section>
     
+    <section class="alert" id="successData" hidden>
+        <h1 id="successName">???</h1><br>
+        <span id="successMsg">???</span><br><br>
+        <button id="successBtn">Okay!</button>
+    </section>
+    
     <section id="content" hidden>
         <h1 id="pkmnName">Pok&eacute;mon Name</h1>
         <button class="icon" id="close"><i class="fas fa-times"></i></button>
@@ -49,6 +56,7 @@
             <span id="errMessage">???</span><br>
             <span><b>ID: </b><span id="errID">???</span></span><br><br>
         </section>
+        
         <section id="pictures">
         <img src="https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png" title="Pok&eacute;mon Image" id="pkmnImg" /> <img src="https://cdn.bulbagarden.net/upload/9/98/Missingno_RB.png" title="Shiny Pok&eacute;mon Image" id="pkmnShiny" /> <br><br>
         <img src="https://cdn.bulbagarden.net/upload/3/3c/UnknownIC_Big.png" title="Type 1" id="pkmnType1" /> <img src="https://cdn.bulbagarden.net/upload/3/3c/UnknownIC_Big.png" title="Type 2" id="pkmnType2" hidden /> <br><br>
@@ -85,11 +93,8 @@
             </table>
         </section>
     </section> 
-    <i id="showFavorites" class="fas fa-heart" title="Favorite Pok&eacute;mon"></i>
-    <div id="favoritesContent">
-        <ul id="favoritesList">
-        </ul>
-    </div>
-    <i id="removeFavorites" class="fa fa-trash" title="Remove All Favorites"></i>
+    <button class="favoritesIcons" id="showFavorites" data-trigger="focus" data-toggle="popover" data-placement="top" data-html="true" data-content="<p>No favorites found!</p>" title="Favorite Pok&eacute;mon">
+        <i class="fas fa-heart"></i>
+    </button>
 </body>
 </html>

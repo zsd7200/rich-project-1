@@ -579,37 +579,6 @@ var sortTable = function sortTable(column, table) {
     }
 };
 
-var configurePopover = function configurePopover(showFavoritesButton, favoritesContent) {
-    var click = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-    // destroy current popover
-    $(showFavoritesButton).fu_popover('destroy');
-
-    // reconfigure popover
-    $(showFavoritesButton).fu_popover({
-        // popover content
-        content: $(favoritesContent).html(),
-        // is dismissable
-        dismissable: true,
-        // top, bottom, left, right
-        placement: 'top',
-        // popover title
-        title: 'Favorite Pok&eacute;mon'
-    });
-
-    if (click) {
-        // force click button to show popover
-        showFavoritesButton.click();
-    }
-};
-
-// remove all favorites
-var removeFavorites = function removeFavorites(favoritesList, showFavoritesButton, favoritesContent) {
-    favPokes = [];
-
-    configurePopover(showFavoritesButton, favoritesContent, false);
-};
-
 var handleResponse = function handleResponse(xhr, favorite) {
     // grab dom elements
     var name = document.querySelector('#pkmnName');
@@ -628,9 +597,11 @@ var handleResponse = function handleResponse(xhr, favorite) {
     var errMessage = document.querySelector("#errMessage");
     var errID = document.querySelector("#errID");
 
+    var successData = document.querySelector("#successData");
+    var successName = document.querySelector("#successName");
+    var successMsg = document.querySelector("#successMsg");
+
     // favorites DOM elements
-    var favoritesList = document.querySelector("#favoritesList");
-    var favoritesContent = document.querySelector("#favoritesContent");
     var showFavoritesButton = document.querySelector("#showFavorites");
     var addFavoriteButton = document.querySelector("#addFavorite");
     var favButtonTxt = document.querySelector("#favButtonTxt");
@@ -674,19 +645,27 @@ var handleResponse = function handleResponse(xhr, favorite) {
 
     switch (xhr.status) {
         case 200:
-            name.innerHTML = "<b>Success</b>";
+            successData.hidden = true;
             break;
         case 201:
-            name.innerHTML = "<b>Create</b>";
+            successData.hidden = false;
+            successName.innerHTML = "201: Data Created";
+            successMsg.innerHTML = "Favorites data has been successfully created.";
+            $(successData).animate({
+                opacity: 1.0
+            }, 200);
+
             break;
         case 204:
-            name.innerHTML = "<b>Updated (No Content)</b>";
+            successData.hidden = false;
+            successName.innerHTML = "204: Data Updated";
+            successMsg.innerHTML = "Favorites data has been successfully updated.";
+            $(successData).animate({
+                opacity: 1.0
+            }, 200);
             break;
         case 400:
             name.innerHTML = "<b>Bad Request</b>";
-            break;
-        case 404:
-            name.innerHTML = "<b>Resource Not Found</b>";
             break;
         default:
             name.innerHTML = "Error code not implemented by client.";
@@ -734,6 +713,7 @@ var handleResponse = function handleResponse(xhr, favorite) {
 
     // check if obj.name exists (basically, if data is sent back)
     if (obj.name) {
+        favButtonTxt.setAttribute("class", hearts["outline"]);
         addFavoriteButton.disabled = false;
 
         // change heart icon if pokemon is in favPokes
@@ -847,28 +827,27 @@ var handleResponse = function handleResponse(xhr, favorite) {
         // search for UUID
         if (obj.users[localStorage.getItem("dunhZ_dexterUUID")]) {
             var uuid = localStorage.getItem("dunhZ_dexterUUID");
+            var fav = document.querySelector("#showFavorites");
 
-            // create a variable to check for duplicates
-            var dupe = false;
+            // create an unordered list
+            var formattedList = "<ul>";
 
-            // search for duplicates
-            for (var _i8 = 0; _i8 < favPokes.length; _i8++) {
-                if (obj.users[uuid].pokemon[favPokes.length] === favPokes[_i8]) {
-                    dupe = true;
-                    console.log(obj.users[uuid].pokemon[favPokes.length]);
-                    break;
-                }
+            // populate list with pokemon from response object
+            for (var _i8 = 0; _i8 < obj.users[uuid].pokemon.length; _i8++) {
+                formattedList += "<li>";
+                formattedList += obj.users[uuid].pokemon[_i8];
+                formattedList += "</li>";
             }
 
-            // if not a duplicate, create an li, append to list, and reconfigure popover menu
-            if (dupe === false && typeof obj.users[uuid].pokemon[favPokes.length] != "undefined") {
-                var li = document.createElement('li');
-                li.innerHTML = obj.users[uuid].pokemon[favPokes.length];
-                favPokes.push(obj.users[uuid].pokemon[favPokes.length]);
-                console.log(li);
-                favoritesList.appendChild(li);
-                configurePopover(showFavoritesButton, favoritesContent);
-            }
+            formattedList += "</ul>";
+
+            // send to popover menu
+            $(fav).attr('data-content', formattedList);
+            $(fav).data('bs.popover').setContent();
+            $(fav).popover('show');
+
+            // add latest pokemon to favPokes array
+            favPokes = obj.users[uuid].pokemon;
         }
     }
 };
@@ -949,10 +928,10 @@ var init = function init() {
     var ballButton = document.querySelector("#ballButton");
     var addFavoriteButton = document.querySelector("#addFavorite");
     var showFavoritesButton = document.querySelector("#showFavorites");
-    var favoritesContent = document.querySelector("#favoritesContent");
-    var favoritesList = document.querySelector("#favoritesList");
+    var favButtonTxt = document.querySelector("#favButtonTxt");
     var closeButton = document.querySelector("#close");
-    var removeButton = document.querySelector("#removeFavorites");
+    var successBtn = document.querySelector("#successBtn");
+    var successData = document.querySelector("#successData");
 
     // table elements
     var moveList = document.querySelector("#movelist");
@@ -969,9 +948,6 @@ var init = function init() {
     };
     var getFavorites = function getFavorites(e) {
         return requestUpdate(e, "/getFavorites");
-    };
-    var remFavorites = function remFavorites() {
-        return removeFavorites(favoritesList, showFavoritesButton, favoritesContent);
     };
     var postData = function postData(e) {
         return sendPost(e, input);
@@ -1083,9 +1059,9 @@ var init = function init() {
 
     // favorite list
     showFavoritesButton.addEventListener('click', getFavorites);
-
-    // remove favorites
-    removeButton.addEventListener('click', remFavorites);
+    $(function () {
+        $('[data-toggle="popover"]').popover();
+    });
 
     // close button to fade out the content section
     closeButton.addEventListener('click', function () {
@@ -1093,6 +1069,14 @@ var init = function init() {
             opacity: 0.0
         }, 500, function () {
             content.hidden = true;
+        });
+    });
+
+    successBtn.addEventListener('click', function () {
+        $(successData).animate({
+            opacity: 0.0
+        }, 200, function () {
+            successData.hidden = true;
         });
     });
 

@@ -32,17 +32,6 @@ tr:nth-child(even) { background-color: #dddddd; }
 tr:nth-child(odd) { background-color: white; }
 ul { padding: 0px; margin: 0px; }
 
-#alert {
-    overflow: auto;
-    width: 45%;
-    margin: auto;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 3px solid black;
-    border-radius: 25px;
-    position: relative;
-    z-index: 1;
-}
 #ballButton {
     border-radius: 100%;
     border: 20px solid black;
@@ -148,18 +137,6 @@ ul { padding: 0px; margin: 0px; }
     width: 55%; 
     float: right;
 }
-#removeFavorites {
-	position: fixed;
-	left: calc(100% - 50px);
-	top: calc(100% - 40px);
-	cursor: pointer;
-}
-#showFavorites {
-	position: fixed;
-	left: calc(100% - 100px);
-	top: calc(100% - 40px);
-	cursor: pointer;
-}
 #stats { 
     text-align: left; 
     padding: 3%;
@@ -170,9 +147,33 @@ ul { padding: 0px; margin: 0px; }
 #content span { font-size: 14px; }
 #favoritesContent { display:none; }
 #pkmnName { font-size: 2em; padding-top: 26.5px; padding-bottom: 26.5px; font-weight: bold; }
+#removeFavorites { left: calc(100% - 50px); }
+#showFavorites { left: calc(100% - 100px); }
+#successData { opacity: 0; }
 #top { text-align: center; margin: 0 auto; }
 
+.alert {
+    overflow: auto;
+    width: 45%;
+    margin: auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 1);
+    border: 3px solid black;
+    border-radius: 25px;
+    position: absolute;
+    top: 20%;
+    z-index: 1000;
+    margin-top: 10px;
+transform: translateX(60%)
+}
 .arrow { float: right; }
+.favoritesIcons {
+    position: fixed;
+	top: calc(100% - 40px);
+	cursor: pointer;
+    background: none;
+    border: 0;
+}
 .icon {
     float: right;
     position: relative;
