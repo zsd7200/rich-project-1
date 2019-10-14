@@ -73,7 +73,7 @@ ul { padding: 0px; margin: 0px; }
     position: relative;
     z-index: 1;
 }
-#getButton {
+.button {
 	background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
 	background-color: #ededed;
 	border-radius: 4px;
@@ -88,11 +88,11 @@ ul { padding: 0px; margin: 0px; }
     padding-bottom: 4px;
     transition: .5s;
 }
-#getButton:hover {
+.button:hover {
     border: 1px solid black;
     transition: .5s;
 }
-#getButton:active {
+.utton:active {
 	background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 	background-color: #dfdfdf;
 }
