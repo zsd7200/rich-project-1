@@ -36,8 +36,8 @@ const onRequest = (request, response) => {
 
     // error handler
     request.on('error', (err) => {
-      console.dir(err);
       response.statusCode = 400;
+      console.log(err);
       response.end();
     });
 
@@ -66,5 +66,3 @@ const onRequest = (request, response) => {
 
 // start server
 http.createServer(onRequest).listen(port);
-
-console.log(`Listening on 127.0.0.1: ${port}`);

@@ -37,7 +37,7 @@ const getPokemon = (request, response, params) => {
     if (!err) {
       responseJSON = res;
     } else {
-      console.log(err);
+      responseJSON.err = err;
     }
   });
 
@@ -80,8 +80,6 @@ const addFavorite = (request, response, body) => {
   // add or update fields for this user name
   users[body.uuid].uuid = body.uuid;
   users[body.uuid].pokemon.push(body.pkmnName);
-
-  console.log(users);
 
   // respond with message if 201 code
   if (responseCode === 201) {
