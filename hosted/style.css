@@ -92,7 +92,7 @@ ul { padding: 0px; margin: 0px; }
     border: 1px solid black;
     transition: .5s;
 }
-.utton:active {
+.button:active {
 	background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 	background-color: #dfdfdf;
 }
